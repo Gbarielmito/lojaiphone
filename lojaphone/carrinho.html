@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo/global.css">
+    <link rel="stylesheet" href="./estilocarrinho/globalcarrinho.css">
+    <title>Unimarket</title>
+</head>
+<body>
+    <div class="navbar show-menu">
+        <div class="header-inner-content">
+          <h1 class="logo">Uni<span>Market</span></h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li>Produtos</li>
+            <li>Sobre</li>
+            <li>Contato</li>
+            <li>Conta</li>
+          </ul>
+        </nav>
+        <div class="nav-icon-container">
+            <img src="./imagens/menu.png" class="menu-button"/>
+          </div>
+        </div>
+</body>
+<main>
+    <div class="container-tabela">
+        <div class="tabela">
+            <p id="prod">Produto</p>
+            <p id="pre">Preço</p>
+            <p id="quan">Quantidade</p>
+            <p id="total">Total</p>
+        </div>
+
+    <article>
+        <div class="container-content">
+            <div class="content-prod">
+                <img src="./imagens/Racao_KITKAT_70GR-removebg-preview.png" >
+                <p>Ração KitKat 70GR</p>
+            </div>
+            <div class="content-pre">
+                <p>R$45,90</p>
+            </div>
+            <div class="container-quad">
+                <div class="content-quan">
+                    <button id="btn-min1" onclick="decrementQuantity(1)">-</button>
+                    <input type="number" id="quantity1" value="1" min="1" max="99" readonly>
+                    <button id="btn-max1" onclick="incrementQuantity(1)">+</button>
+                </div>
+                <p>Remover</p>
+            </div>
+            <div class="content-total">
+                <p>R$45,90</p>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container-content">
+            <div class="content-prod">
+                <img src="./imagens/racao_premier_adulto-removebg-preview.png" alt="gato07">
+                <p>Ração Premier Formula</p>
+            </div>
+            <div class="content-pre">
+                <p>R$130,00</p>
+            </div>
+            <div class="container-quad">
+                <div class="content-quan">
+                    <button id="btn-min2"  onclick="decrementQuantity(2)">-</button>
+                    <input type="number" id="quantity2" value="1" min="1" max="99" readonly>
+                    <button id="btn-max2" onclick="incrementQuantity(2)">+</button>
+                </div>
+                <p>Remover</p>
+            </div>
+            <div class="content-total">
+                <p>R$130,00</p>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container-content">
+            <div class="content-prod">
+                <img src="./imagens/Racao-Golden-removebg-preview.png" alt="gato012">
+                <p>Ração Golden Formula</p>
+            </div>
+            <div class="content-pre">
+                <p>R$119,99</p>
+            </div>
+            <div class="container-quad">
+                <div class="content-quan">
+                    <button  id="btn-min3" onclick="decrementQuantity(3)">-</button>
+                    <input type="number" id="quantity3" value="1" min="1" max="99" readonly>
+                    <button  id="btn-max3" onclick="incrementQuantity(3)">+</button>
+                </div>
+                <p>Remover</p>
+            </div>
+            <div class="content-total">
+                <p>R$119,99</p>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container-content">
+            <div class="content-prod">
+                <img src="./imagens/racao_whiskas-removebg-preview.png" alt="caes011">
+                <p>Ração Whiskas</p>
+            </div>
+            <div class="content-pre">
+                <p>R$95,00</p>
+            </div>
+            <div class="container-quad">
+                <div class="content-quan">
+                    <button  id="btn-min4" onclick="decrementQuantity(4)">-</button>
+                    <input type="number" id="quantity4" value="1" min="1" max="99" readonly>
+                    <button  id="btn-max4" onclick="incrementQuantity(4)">+</button>
+                </div>
+                <p>Remover</p>
+            </div>
+            <div class="content-total">
+                <p>R$95,00</p>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <div class="container-content">
+            <div class="content-prod">
+                <img src="./imagens/coleira_dog-removebg-preview.png" alt="pas12">
+                <p>Coleira para dog</p>
+            </div>
+            <div class="content-pre">
+                <p>R$15,00</p>
+            </div>
+            <div class="container-quad">
+                <div class="content-quan">
+                    <button  id="btn-min5" onclick="decrementQuantity(5)">-</button>
+                    <input type="number" id="quantity5" value="1" min="1" max="99" readonly>
+                    <button  id="btn-max5" onclick="incrementQuantity(5)">+</button>
+                </div>
+                <p>Remover</p>
+            </div>
+            <div class="content-total">
+                <p>R$15,00</p>
+            </div>
+        </div>
+    </article>
+</div>
+
+    <div class="container-pedido">
+        <div class="pedido">
+            <p id="resumo">Resumo do pedido</p>
+        </div>
+
+        <article>
+            <div class="content-pedido">
+                <div class="content-subtotal">
+                    <p>Subtotal</p>
+                    <p>R$405,89</p>
+                </div>
+                <div class="content-entrega">
+                    <p>Entrega</p>
+                    <p id="valor-entrega">R$0,00</p>
+                </div>
+                <div id="cupom"></div>
+                <div class="content-pre-total">
+                    <p>Total</p>
+                    <p>R$405,89</p>
+                </div>
+                <div class="content-desconto">
+                    <div class="box-des">
+                        <p id="pric">R$405,89</p>
+                        <p id="price-descont">R$365,30</p>
+                    </div>
+                    <p id="pix"><i>Valor com 10% de desconto no boleto ou PIX</i></p>
+                </div>
+                <div class="content-comprar">
+                    <button>Adicionar mais produtos</button>
+                    <button id="fechar-ped">FECHAR PEDIDO</button>
+                </div>
+
+        <div class="container-formas-pag">
+                <h2>Formas de Pagamento</h2>
+        <div class="formas-pag">
+            <div class="content-pag">
+                <img id="pag-1" src="/imagens/pag-1 (1)-Photoroom.png-Photoroom.png" alt="pag-1">
+                <img id="pag-2" src="/imagens/pag-2 (1)-Photoroom.png-Photoroom.png" alt="pag-2">
+                <img id="pag-3" src="/imagens/pag-3 (1)-Photoroom.png-Photoroom.png" alt="pag-3">
+                <img id="pag-4" src="/imagens/pag-4 (1)-Photoroom.png-Photoroom.png" alt="pag-4">
+                <img id="pag-5" src="/imagens/pag-5 (1)-Photoroom.png-Photoroom.png" alt="pag-5">
+            </div>
+            <div class="content-pag2">
+                <img id="pag-6" src="/imagens/pag-6 (1)-Photoroom.png-Photoroom.png" alt="pag-6">
+                <img id="pag-7" src="/imagens/pag-7 (1)-Photoroom.png-Photoroom.png" alt="pag-7">
+                <img id="pag-8" src="/imagens/pag-8 (1)-Photoroom.png-Photoroom.png" alt="pag-8">
+                <img id="pag-9" src="/imagens/pag-9 (1)-Photoroom.png-Photoroom.png" alt="pag-9">
+                <img id="pag-10" src="/imagens/pag-10 (1)-Photoroom.png-Photoroom.png" alt="pag-10">
+            </div>
+        </div>
+        </div>
+
+        <div class="container-cep">
+                <h1 id="name-consulta">Entrega</h1>
+                <div class="content-cep">
+                    <div class="pesquisa">
+                        <input type="text" id="cep" placeholder="Digite seu CEP">
+                        <label class="form-pesquisa" for="cep"></label>
+                    </div>
+                    <button onclick="buscarEndereco()">Calcular</button>
+                    <p id="nao-sei-cep">Não sei meu CEP</p>
+                </div>
+                <div class="frete">
+                        <div id="endereco"></div>
+                        <div class="content-frete">
+                            <div id="economico"></div>
+                            <div id="expresso"></div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="cupom-container">
+            <h1 id="name-consulta">Insira seu cupom</h1>
+            <div class="content-cep">
+                <input type="text" id="cupom-input">
+                <button onclick="aplicarCupom()">Aplicar</button>
+            </div>
+            <div id="cupom-message"></div>
+            <div id="cupom-message2"></div>
+        </div>     
+
+        </div>
+    </article>
+
+    </div>
+
+</main>
+
+    <script>
+        var calculoRealizado = false;
+
+        function buscarEndereco() {
+            var cep = document.getElementById('cep').value;
+            var url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        document.getElementById('endereco').innerText = "CEP não encontrado.";
+                    } else {
+                        var endereco = `<div id="end">${data.logradouro}, ${data.bairro}, ${data.localidade}, ${data.uf}</div>`;
+                        document.getElementById('endereco').innerHTML = endereco;
+                        var economico = `<div id="eco"><strong>ECONÔMICO</strong> | R$30,28 <br>
+                                            <span class="cor-frete"><strong>Médio: 7 dias úteis*</strong></span><br>
+                                            Máximo: 16 dias úteis*</div>`;
+                        document.getElementById('economico').innerHTML = economico;
+                        var expresso = `<div id="eco"><strong>EXPRESSO</strong> | R$60,42 <br>
+                                            <span class="cor-frete"><strong>Médio: 4 dias úteis*</strong></span><br>
+                                            Máximo: 10 dias úteis*</div>`;
+                        document.getElementById('expresso').innerHTML = expresso;
+
+                        var valorEntrega = document.getElementById('valor-entrega');
+                        if (valorEntrega) {
+                            valorEntrega.innerText = 'R$30,28';
+                        }
+
+                        if (!calculoRealizado) {
+                            var total = document.querySelector('.content-pre-total p:last-of-type');
+                            var totalValue = parseFloat(total.innerText.replace('R$', '').replace(',', '.'));
+                            var newTotal = totalValue + 30.28;
+                            total.innerText = 'R$' + newTotal.toFixed(2).replace('.', ',');
+                            var desconto = newTotal * 0.1;
+                            var totalComDesconto = newTotal - desconto;
+                            document.getElementById('price-descont').innerText = 'R$' + totalComDesconto.toFixed(2).replace('.', ',');
+
+                            var pricElement = document.getElementById('pric');
+                            var pricValue = parseFloat(pricElement.innerText.replace('R$', '').replace(',', '.'));
+                            var newPricValue = pricValue + 30.28;
+                            pricElement.innerText = 'R$' + newPricValue.toFixed(2).replace('.', ',');
+
+                            calculoRealizado = true;
+                        }
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+
+
+        var cupomAplicado = false;
+
+            function aplicarCupom() {
+                if (cupomAplicado) {
+                    var cupomMessage = document.getElementById('cupom-message');
+                    cupomMessage.innerText = 'Cupom (reino100) aplicado';
+                    return;
+                }
+
+                var cupomInput = document.getElementById('cupom-input');
+                var cupomValue = cupomInput.value.toUpperCase();
+
+                if (cupomValue === 'REINO100') {
+                    var total = document.querySelector('.content-pre-total p:last-of-type');
+                    var totalValue = parseFloat(total.innerText.replace('R$', '').replace(',', '.'));
+                    var newTotal = totalValue - 100;
+                    total.innerText = 'R$' + newTotal.toFixed(2).replace('.', ',');
+
+                    var stotal = document.querySelector('.box-des p:last-of-type');
+                    var stotalValue = parseFloat(stotal.innerText.replace('R$', '').replace(',', '.'));
+                    var snewTotal = stotalValue - 100;
+                    stotal.innerText = 'R$' + snewTotal.toFixed(2).replace('.', ',');
+
+                    var pricElement = document.getElementById('pric');
+                    var pricValue = parseFloat(pricElement.innerText.replace('R$', '').replace(',', '.'));
+                    var newPricValue = pricValue - 100;
+                    pricElement.innerText = 'R$' + newPricValue.toFixed(2).replace('.', ',');
+
+                    var cupom = `<div class="content-entrega">
+                                    <p>Cupom</p>
+                                    <p id="valor-entrega">-R$100,00</p>
+                                </div>`;
+                    document.getElementById('cupom').innerHTML = cupom;
+
+                    var cupomMessage = document.getElementById('cupom-message');
+                    cupomMessage.innerText = 'Cupom (reino100) aplicado';
+                    
+                    var cupomMessageInvalido = document.getElementById('cupom-message2');
+                    cupomMessageInvalido.innerText = '';
+                    cupomMessageInvalido.style.display = 'none';
+
+                    cupomAplicado = true;
+                } else {
+                    var cupomMessageInvalido = document.getElementById('cupom-message2');
+                    cupomMessageInvalido.innerText = 'Cupom inválido!';
+                    return;
+                }
+            }
+
+            function incrementQuantity(id) {
+                var input = document.getElementById("quantity" + id);
+                var value = parseInt(input.value);
+                var priceElement = document.querySelector("#quantity" + id)
+                    .closest(".container-content")
+                    .querySelector(".content-pre p");
+                var price = parseFloat(priceElement.innerText.replace("R$", "").replace(",", "."));
+                var totalElement = document.querySelector("#quantity" + id)
+                    .closest(".container-content")
+                    .querySelector(".content-total p");
+                var total = parseFloat(totalElement.innerText.replace("R$", "").replace(",", "."));
+                var subtotalElement = document.querySelector(".content-subtotal p:last-child");
+                var subtotal = parseFloat(subtotalElement.innerText.replace("R$", "").replace(",", "."));
+
+                if (value < parseInt(input.max)) {
+                    input.value = value + 1;
+                    totalElement.innerText = "R$" + (total + price).toFixed(2).replace(".", ",");
+                    subtotalElement.innerText = "R$" + (subtotal + price).toFixed(2).replace(".", ",");
+                    updateTotal();
+                }
+            }
+
+            function decrementQuantity(id) {
+                var input = document.getElementById("quantity" + id);
+                var value = parseInt(input.value);
+                var priceElement = document.querySelector("#quantity" + id)
+                    .closest(".container-content")
+                    .querySelector(".content-pre p");
+                var price = parseFloat(priceElement.innerText.replace("R$", "").replace(",", "."));
+                var totalElement = document.querySelector("#quantity" + id)
+                    .closest(".container-content")
+                    .querySelector(".content-total p");
+                var total = parseFloat(totalElement.innerText.replace("R$", "").replace(",", "."));
+                var subtotalElement = document.querySelector(".content-subtotal p:last-child");
+                var subtotal = parseFloat(subtotalElement.innerText.replace("R$", "").replace(",", "."));
+
+                if (value > parseInt(input.min)) {
+                    input.value = value - 1;
+                    totalElement.innerText = "R$" + (total - price).toFixed(2).replace(".", ",");
+                    subtotalElement.innerText = "R$" + (subtotal - price).toFixed(2).replace(".", ",");
+                    updateTotal();
+                }
+            }
+
+            function updateTotal() {
+                var subtotalElement = document.querySelector(".content-subtotal p:last-child");
+                var subtotal = parseFloat(subtotalElement.innerText.replace("R$", "").replace(",", "."));
+                var totalElement = document.querySelector(".content-pre-total p:last-child");
+                var priceDiscountElement = document.querySelector("#price-descont");
+                var priceOriginalElement = document.querySelector("#pric");
+
+                totalElement.innerText = "R$" + subtotal.toFixed(2).replace(".", ",");
+                priceDiscountElement.innerText = "R$" + (subtotal * 0.9).toFixed(2).replace(".", ",");
+                priceOriginalElement.innerText = "R$" + subtotal.toFixed(2).replace(".", ",");
+            }
+            
+            document.addEventListener("DOMContentLoaded", function () {
+                const images1 = document.querySelectorAll(".content-pag img");
+                const images2 = document.querySelectorAll(".content-pag2 img");
+
+                images1.forEach(function (image) {
+                    image.addEventListener("click", function () {
+                        images1.forEach(function (img) {
+                            img.classList.remove("selected");
+                        });
+                        images2.forEach(function (img) {
+                            img.classList.remove("selected");
+                        });
+
+                        this.classList.add("selected");
+                    });
+                });
+
+                images2.forEach(function (image) {
+                    image.addEventListener("click", function () {
+                        images1.forEach(function (img) {
+                            img.classList.remove("selected");
+                        });
+                        images2.forEach(function (img) {
+                            img.classList.remove("selected");
+                        });
+
+                        this.classList.add("selected");
+                    });
+                });
+            });
+
+    </script>
+
+</main>
+</html>
