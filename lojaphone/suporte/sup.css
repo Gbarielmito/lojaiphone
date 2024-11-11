@@ -1,0 +1,121 @@
+.support-button button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  box-shadow: none; 
+  background-color: transparent; 
+  border-radius: 0; 
+  width: auto; 
+  height: auto; 
+  padding: 0; 
+}
+
+
+
+.support-button button img {
+  width: 50px; 
+  height: 50px; 
+}
+
+.support-popup {
+  display: none; 
+  position: fixed; 
+  bottom: 80px; 
+  right: 20px; 
+  z-index: 1001; 
+  background-color: white; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px; 
+  width: 300px; 
+  max-width: 90%; 
+  padding: 20px; 
+}
+
+.support-popup-content {
+  position: relative; 
+}
+
+.support-popup .close {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  background: none; 
+  border: none; 
+  font-size: 20px; 
+  cursor: pointer; 
+}
+
+.support-form {
+  margin-top: 20px;
+}
+
+.support-form h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+.support-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.support-form input[type="text"],
+.support-form input[type="email"],
+.support-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.support-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.support-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.notification {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1002;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: auto;
+}
+.notification.fade-out {
+  animation: fadeOut 10s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.notification p {
+  margin: 0;
+  font-size: 16px;
+}

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniMarket</title>
     <link rel="stylesheet" href="./estilo/global.css" />
+    <link rel="stylesheet" href="/lojaphone/suporte/sup.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   </head>
   <body>
     <section id="home">
@@ -42,7 +44,81 @@
         <div class="header-bottom-side-right">
           <img src="./imagens/iphonesrepre.png" />
         </div>
+
       </div>
+        <div id="support-button" class="support-button">
+        <button onclick="toggleSupportPopup()"><img src="/lojaphone/imagens/chat.png" alt=""></button>
+      </div>
+      
+      <div id="support-popup" class="support-popup">
+        <div class="support-popup-content">
+          <button class="close" onclick="toggleSupportPopup()">&times;</button>
+          <h2>Suporte 24h</h2>
+          <p>Como podemos ajudar você?</p>
+
+          <div class="support-form">
+            <h3>Envie sua dúvida</h3>
+            <form id="supportForm">
+              <label for="name">Nome:</label>
+              <input type="text" id="name" name="name" required>
+              
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+              
+              <label for="question">Dúvida:</label>
+              <textarea id="question" name="question" rows="4" required></textarea>
+              
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="notification" class="notification" style="display: none;">
+        <p>Sua dúvida foi enviada com sucesso! Verifique sua caixa de emails</p>
+      </div>
+
+      <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          var notification = document.getElementById('notification');
+          notification.style.display = 'block';
+          var popup = document.getElementById('support-popup');
+          popup.style.display = 'none';
+          this.reset();
+          setTimeout(function() {
+        notification.style.display = 'none';
+          }, 15000); 
+        });
+      </script>
+
+      <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          document.getElementById('notification').style.display = 'block';
+          this.reset();
+        });
+      </script>
+      
+
+      <script>
+        document.getElementById('supportForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          alert('Sua dúvida foi enviada com sucesso!');
+          this.reset();
+        });
+      </script>
+
+      <script>
+        function toggleSupportPopup() {
+          var popup = document.getElementById("support-popup");
+          if (popup.style.display === "block") {
+        popup.style.display = "none";
+          } else {
+        popup.style.display = "block";
+          }
+        }
+      </script>
+
     </header>
     <!--Main Contentt-->
     <main>
@@ -122,8 +198,8 @@
             </div>
             <div class="product">
               <img
-                src="./imagens/airpods.png"
-                width="250px"
+                src="./imagens/airpodsrep.png"
+                width="178px"
                 alt=""
               />
               <p class="product-name">Airpods 2</p>

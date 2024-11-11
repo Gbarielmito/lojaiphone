@@ -8,10 +8,24 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./administrador/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
     <title>Conta</title>
   </head>
   <body>
     <div class="container">
+
+      <div id="success-popup" class="popup">
+        <div class="popup-content">
+        <span class="close-btn" id="close-popup">&times;</span>
+        <div style="display: flex; align-items: center;">
+        <img src="/lojaphone/imagens/verificado.png" alt="" style="width: 30px; height: 30px; margin-right: 10px;">
+        <p>Sua conta foi criada com sucesso!</p>
+        </div>
+        </div>
+      </div>
+  
+
       <div class="forms-container">
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
@@ -30,7 +44,7 @@
               <input type="password" placeholder="Senha" />
             </div>
             <p class="social-text">Ou se você ja tem uma conta <a href="logincliente.html">clique aqui</a></p>
-            <input type="submit" value="Cadastrar" class="btn solid" />
+            <input type="button" value="Cadastrar" class="btn solid" id="cadastrar-cliente" />
           </form>
           <form action="#" class="sign-up-form">
             <h2 class="title">Criar conta</h2>
@@ -64,7 +78,7 @@
               <input type="tel" placeholder="Cep do emprendimento" />
             </div>
             <p class="social-text">Ou se você ja tem uma conta <a href="loginemp.html">clique aqui</a></p>
-            <input type="submit" class="btn" value="Cadastrar" />
+            <input type="button" class="btn" value="Cadastrar" id="cadastrar-emprendedor" />
 
           </form>
         </div>
@@ -98,6 +112,38 @@
       </div>
     </div>
 
+    
+
+    <script src="app.js"></script>
+  </body>
+</html>
+    <script>
+      document.getElementById('cadastrar-cliente').addEventListener('click', function() {
+      setTimeout(function() {
+        document.getElementById('success-popup').style.display = 'block';
+        document.body.classList.add('popup-active');
+      }, 1000); 
+      });
+
+      document.getElementById('cadastrar-emprendedor').addEventListener('click', function() {
+      setTimeout(function() {
+        document.getElementById('success-popup').style.display = 'block';
+        document.body.classList.add('popup-active');
+      }, 1000); 
+      });
+
+      document.getElementById('close-popup').addEventListener('click', function() {
+      document.getElementById('success-popup').style.display = 'none';
+      document.body.classList.remove('popup-active');
+      });
+
+      window.onclick = function(event) {
+      if (event.target == document.getElementById('success-popup')) {
+        document.getElementById('success-popup').style.display = 'none';
+        document.body.classList.remove('popup-active');
+      }
+      };
+    </script>
     <script src="app.js"></script>
   </body>
 </html>
