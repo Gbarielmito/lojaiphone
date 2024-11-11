@@ -144,6 +144,41 @@
       }
       };
     </script>
+    <script>
+      document.getElementById('cadastrar-cliente').addEventListener('click', function() {
+        setTimeout(function() {
+          document.getElementById('success-popup').style.display = 'block';
+          document.body.classList.add('popup-active');
+          setTimeout(function() {
+            document.getElementById('success-popup').style.display = 'none';
+            document.body.classList.remove('popup-active');
+          }, 15000); // 15 seconds
+        }, 1000); 
+      });
+
+      document.getElementById('cadastrar-emprendedor').addEventListener('click', function() {
+        setTimeout(function() {
+          document.getElementById('success-popup').style.display = 'block';
+          document.body.classList.add('popup-active');
+          setTimeout(function() {
+            document.getElementById('success-popup').style.display = 'none';
+            document.body.classList.remove('popup-active');
+          }, 15000); // 15 seconds
+        }, 1000); 
+      });
+
+      document.getElementById('close-popup').addEventListener('click', function() {
+        document.getElementById('success-popup').style.display = 'none';
+        document.body.classList.remove('popup-active');
+      });
+
+      window.onclick = function(event) {
+        if (event.target == document.getElementById('success-popup')) {
+          document.getElementById('success-popup').style.display = 'none';
+          document.body.classList.remove('popup-active');
+        }
+      };
+    </script>
     <script src="app.js"></script>
   </body>
 </html>
