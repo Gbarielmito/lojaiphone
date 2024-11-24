@@ -602,7 +602,11 @@ img {
 
 /*=============== MEDIA QUERIES ===============*/
 /* For small devices */
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 390px) {
+
+  .section {
+    padding: 1rem 0 2rem;
+  }
   .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
@@ -611,7 +615,7 @@ img {
     font-size: var(--big-font-size);
   }
   .home__img {
-    width: 200px;
+    width: 390px;
     top: -13rem;
   }
   .home__title {
@@ -619,45 +623,70 @@ img {
     font-size: var(--bigger-font-size);
   }
   .home__data {
-    padding-top: 1rem;
+    padding-top: 4rem;
   }
   .home__description {
     font-size: var(--small-font-size);
-  }
-  .specs__img {
-    width: 200px;
+    width: 90%;
   }
   .case__container {
-    grid-template-columns: .6fr 1fr;
+    grid-template-columns: .1fr 1fr;
   }
+  
   .case__img {
-    width: 220px;
-    top: -2rem;
-    left: -9rem;
+    width: 250px;
+    top: -1rem;
+    left: 4rem;
   }
   .case__data {
-    padding: 0;
+    padding: 18rem 14rem 0 0;
+    width: 150%;
+  }
+
+  .discount__animate p{
+    width: 55%;
+  }
+
+  .discount__animate .button{
+    width: 50%;
+  }
+
+  .discount__img{
+    top: 1rem;
+    right: -1rem;
+    width: 210px;
   }
   .products__container {
-    grid-template-columns: 142px;
+    grid-template-columns: 150px;
     justify-content: center;
   }
 
   .specs__container img{
-    width: 400px;
+    width: 210px;
+    top: 3rem;
+    right: -1rem;
   }
 
   .products__imgblack {
-    width: 2px;
+    width: 80px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.05rem;
+    top: -1.50rem;
   }
 
   .products__imgblue {
-    width: 40px;
+    width: 78px;
+    position: absolute;
+    inset: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: -1.25rem;
+  }
+  
+  .products__img {
+    width: 83px;
     position: absolute;
     inset: 0;
     margin-right: auto;
@@ -787,7 +816,7 @@ img {
     column-gap: 5rem;
   }
   .case__img {
-    width: 300px;
+    width: 500px;
   }
   .case__description {
     margin-bottom: var(--mb-2);
