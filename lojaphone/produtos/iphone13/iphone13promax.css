@@ -647,13 +647,13 @@ img {
   }
 
   .discount__animate .button{
-    width: 50%;
+    width: 60%;
   }
 
   .discount__img{
     top: 1rem;
-    right: -1rem;
-    width: 210px;
+    right: 0.50rem;
+    width: 130px;
   }
   .products__container {
     grid-template-columns: 150px;
@@ -667,12 +667,12 @@ img {
   }
 
   .products__imgblack {
-    width: 80px;
+    width: 90px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.50rem;
+    top: -2.60rem;
   }
 
   .products__imgblue {
@@ -690,7 +690,7 @@ img {
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.25rem;
+    top: -2.40rem;
   }
 }
 
