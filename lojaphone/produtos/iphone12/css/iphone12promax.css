@@ -639,7 +639,7 @@ img {
   }
   .case__data {
     padding: 18rem 14rem 0 0;
-    width: 150%;
+    width: 160%;
   }
 
   .discount__animate p{
@@ -651,7 +651,7 @@ img {
   }
 
   .discount__img{
-    top: 1rem;
+    top: 2.40rem;
     right: 0.50rem;
     width: 130px;
   }
@@ -661,36 +661,36 @@ img {
   }
 
   .specs__container img{
-    width: 210px;
-    top: 3.90rem;
+    width: 160px;
+    top: 3.30rem;
     right: -1rem;
   }
 
   .products__imgblack {
-    width: 90px;
-    position: absolute;
-    inset: 0;
-    margin-right: auto;
-    margin-left: auto;
-    top: -2.60rem;
-  }
-
-  .products__imgblue {
-    width: 78px;
-    position: absolute;
-    inset: 0;
-    margin-right: auto;
-    margin-left: auto;
-    top: -1.50rem;
-  }
-  
-  .products__img {
-    width: 83px;
+    width: 110px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
     top: -2.40rem;
+  }
+
+  .products__imgblue {
+    width: 110px;
+    position: absolute;
+    inset: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: -2.40rem;
+  }
+  
+  .products__img {
+    width: 110px;
+    position: absolute;
+    inset: 0;
+    margin-right: auto;
+    margin-left: auto;
+    top: -2.10rem;
   }
 }
 
@@ -703,6 +703,7 @@ img {
     padding-top: 2rem;
   }
   .home__img {
+    width: 230px;
     top: -7rem;
     left: 0;
   }
@@ -744,30 +745,30 @@ img {
   }
 
   .products__imgblack {
-    width: 400px;
+    width: 90px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -0.80rem;
+    top: -1.20rem;
   }
 
   .products__imgblue {
-    width: 85px;
+    width: 100px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -0.82rem;
+    top: -1.70rem;
   }
 
   .products__img {
-    width: 130px;
+    width: 98px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.30rem;
+    top: -1.40rem;
   }
   
 
@@ -916,30 +917,30 @@ img {
   }
 
   .products__imgblack {
-    width: 80px;
+    width: 120px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.05rem;
+    top: -2rem;
   }
 
   .products__img {
-    width: 100px;
+    width: 130px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.95rem;
+    top: -2.20rem;
   }
 
   .products__imgblue {
-    width: 90px;
+    width: 120px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.40rem;
+    top: -1.90rem;
   }
   
 }
