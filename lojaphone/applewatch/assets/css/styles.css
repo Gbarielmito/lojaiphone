@@ -83,6 +83,7 @@ button {
 	border-radius: 50px;
 	font-weight: 600;
 	transition: 0.4s;
+	
 }
 
 .btn:hover {
@@ -412,6 +413,13 @@ button {
 .case-img-1 {
 	width: 85%;
 	margin: 0 auto;
+	padding: 2rem;
+}
+
+.case-img-2 {
+	width: 65%;
+	margin: 0 auto;
+	padding-top: 2rem;
 }
 
 /* PRODUCT SECTION ========================================= */
