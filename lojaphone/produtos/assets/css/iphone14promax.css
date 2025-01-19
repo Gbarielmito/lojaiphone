@@ -476,6 +476,10 @@ img {
   border-radius: .35rem;
 }
 
+.products__button a{
+  color: var(--white-color);
+}
+
 /*=============== FOOTER ===============*/
 .footer__container {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
