@@ -938,12 +938,12 @@ img {
   }
 
   .products__imgblue {
-    width: 90px;
+    width: 99px;
     position: absolute;
     inset: 0;
     margin-right: auto;
     margin-left: auto;
-    top: -1.40rem;
+    top: -2.50rem;
   }
   
 }

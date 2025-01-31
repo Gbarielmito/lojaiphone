@@ -665,7 +665,7 @@ img {
   }
 
   .specs__container img{
-    width: 160px;
+    width: 260px;
     top: 3.30rem;
     right: -1rem;
   }
@@ -697,6 +697,7 @@ img {
     top: -2.10rem;
   }
 }
+
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
