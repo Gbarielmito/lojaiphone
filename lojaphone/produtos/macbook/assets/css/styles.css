@@ -438,13 +438,13 @@ button {
 }
 
 .products-img {
-	width: 170px;
+	width: 140px;
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
 	margin-right: auto;
 	margin-left: auto;
-	top: -4rem;
+	top: -0.80rem;
 }
 
 /* .product-content {
