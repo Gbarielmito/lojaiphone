@@ -291,7 +291,7 @@ img {
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
-  background-color: var(--black-color);
+  background-color: #161616;
   color: var(--white-color);
   padding: 1rem 1.25rem;
   border-radius: .5rem;
@@ -299,7 +299,7 @@ img {
 }
 
 .button:hover {
-  background-color: var(--black-color-alt);
+  background-color: #1a1a1a;
 }
 
 .button__icon {
