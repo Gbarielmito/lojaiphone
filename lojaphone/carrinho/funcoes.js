@@ -287,17 +287,29 @@ function aumentarQuantidade(button) {
     const cardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
     const totalSlides = Math.ceil(cards.length / cardsPerView);
     
+    // Ajustar largura dos cards
+    function ajustarCards() {
+        const width = window.innerWidth < 768 ? 'calc(100% - 2rem)' : window.innerWidth < 1024 ? 'calc(50% - 2rem)' : 'calc(33.333% - 2rem)';
+        cards.forEach(card => {
+            card.style.flex = `0 0 ${width}`;
+        });
+    }
+    
     // Criar dots
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
+    function criarDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
     }
     
     function updateCarrossel() {
-        const offset = currentIndex * -100;
+        const cardWidth = window.innerWidth < 768 ? 100 : window.innerWidth < 1024 ? 50 : 33.333;
+        const offset = currentIndex * -cardWidth;
         carrossel.style.transform = `translateX(${offset}%)`;
         
         // Atualizar dots
@@ -333,10 +345,15 @@ function aumentarQuantidade(button) {
     window.addEventListener('resize', () => {
         const newCardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
         if (newCardsPerView !== cardsPerView) {
-            location.reload();
+            ajustarCards();
+            criarDots();
+            currentIndex = 0;
+            updateCarrossel();
         }
     });
     
     // Inicializar carrossel
+    ajustarCards();
+    criarDots();
     updateCarrossel();
   });

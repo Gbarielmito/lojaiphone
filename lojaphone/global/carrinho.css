@@ -625,16 +625,23 @@
   .titulo-recomendados {
     text-align: center;
     color: #ffffff;
-    font-size: 1.8rem;
     margin-bottom: 2rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
   }
 
   .titulo-recomendados i {
     color: #43ff0f;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .titulo-recomendados h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #ffffff;
   }
 
   .grid-produtos {
@@ -656,6 +663,8 @@
     align-items: center;
     gap: 1rem;
     border: 1px solid #3a3a3a;
+    flex: 0 0 100%;
+    margin: 0 1rem;
   }
 
   .produto-card:hover {
@@ -802,14 +811,19 @@
       padding: 0 30px;
     }
 
-    .carrossel-btn {
-      width: 35px;
-      height: 35px;
-      font-size: 1.2rem;
+    .carrossel-slide {
+      gap: 0;
     }
 
     .produto-card {
-      min-width: 250px;
+      min-width: calc(100% - 2rem);
+      padding: 1.2rem;
+      margin: 0 1rem;
+    }
+
+    .produto-card img {
+      width: 180px;
+      height: 180px;
     }
   }
 
@@ -825,6 +839,13 @@
     }
 
     .produto-card {
-      min-width: 200px;
+      min-width: calc(100% - 2rem);
+      padding: 1rem;
+      margin: 0 1rem;
+    }
+
+    .produto-card img {
+      width: 160px;
+      height: 160px;
     }
   }
