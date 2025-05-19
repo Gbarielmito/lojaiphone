@@ -1,0 +1,38 @@
+/* Fundo gradiente animado profissional */
+body {
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(120deg, #232526 0%, #232526 30%, #283e51 70%, #414345 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease-in-out infinite;
+    opacity: 1;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Remove partículas e padrões antigos */
+.floating-particles, .particle {
+    display: none !important;
+} 
