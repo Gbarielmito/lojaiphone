@@ -121,22 +121,47 @@
   }
 
   .carrinho-total {
-    text-align: right;
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: #f8f8f8;
-    border-radius: 10px;
-    font-size: 1.4rem;
+    margin-top: 32px;
+    background: #2325260a;
+    border-radius: 12px;
+    padding: 24px 24px 16px 24px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .carrinho-total .total-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    padding-bottom: 0;
+  }
+
+  .carrinho-total .total-info:last-child {
+    margin-bottom: 0;
+  }
+
+  .carrinho-total .total-final {
+    border-top: 2px solid #41434533;
+    padding-top: 9px;
+    margin-top: 18px;
+    background: #23252612;
     font-weight: bold;
-    color: #2c2c2c;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1.18rem;
+    color: #232526;
   }
 
   .carrinho-botoes {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 4rem;
     gap: 1rem;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 
   .carrinho-botoes button {
@@ -584,4 +609,110 @@
 
   .form-group input:disabled + label {
     color: #999;
+  }
+
+  /* Produtos Recomendados */
+  .produtos-recomendados {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+  }
+
+  .titulo-recomendados {
+    text-align: center;
+    color: #2c2c2c;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .titulo-recomendados i {
+    color: #ff4444;
+  }
+
+  .grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .produto-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .produto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .produto-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .produto-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .produto-card h3 {
+    color: #2c2c2c;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .produto-card .preco {
+    color: #0084ff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+
+  .btn-adicionar {
+    background: #43ff0f;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .btn-adicionar:hover {
+    background: #43ff0f;
+    transform: translateY(-2px);
+  }
+
+  /* Responsividade para produtos recomendados */
+  @media (max-width: 768px) {
+    .grid-produtos {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .produto-card {
+      padding: 1rem;
+    }
+
+    .produto-card img {
+      width: 150px;
+      height: 150px;
+    }
   }
