@@ -2,7 +2,7 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: #ffffff;
+    background: #e8e8e8;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
@@ -49,7 +49,7 @@
     margin-bottom: 1rem;
     transition: all 0.3s ease;
     border-radius: 10px;
-    background: #fff;
+    background: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   }
 
@@ -122,7 +122,7 @@
 
   .carrinho-total {
     margin-top: 32px;
-    background: #2325260a;
+    background: #ffffff;
     border-radius: 12px;
     padding: 24px 24px 16px 24px;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
@@ -146,7 +146,7 @@
 
   .carrinho-total .total-final {
     border-top: 2px solid #41434533;
-    padding-top: 9px;
+    padding: 10px;
     margin-top: 18px;
     background: #23252612;
     font-weight: bold;
@@ -176,7 +176,7 @@
   }
 
   .carrinho-botoes button:first-child {
-    background: #f0f0f0;
+    background: #ffffff;
     color: #2c2c2c;
   }
 
@@ -615,12 +615,16 @@
   .produtos-recomendados {
     margin-top: 4rem;
     padding: 2rem 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #3a3a3a;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
   }
 
   .titulo-recomendados {
     text-align: center;
-    color: #2c2c2c;
+    color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 2rem;
     display: flex;
@@ -630,7 +634,7 @@
   }
 
   .titulo-recomendados i {
-    color: #ff4444;
+    color: #43ff0f;
   }
 
   .grid-produtos {
@@ -641,21 +645,23 @@
   }
 
   .produto-card {
-    background: white;
+    background: #2c2c2c;
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    border: 1px solid #3a3a3a;
   }
 
   .produto-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: #4a4a4a;
   }
 
   .produto-card img {
@@ -670,21 +676,21 @@
   }
 
   .produto-card h3 {
-    color: #2c2c2c;
+    color: #b3b3b3;
     font-size: 1.2rem;
     margin: 0.5rem 0;
   }
 
   .produto-card .preco {
-    color: #0084ff;
+    color: #e5e5e5;
     font-size: 1.3rem;
     font-weight: bold;
     margin: 0.5rem 0;
   }
 
   .btn-adicionar {
-    background: #43ff0f;
-    color: white;
+    background: #64d348;
+    color: #262626;
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
@@ -696,7 +702,7 @@
   }
 
   .btn-adicionar:hover {
-    background: #43ff0f;
+    background: #36c30f;
     transform: translateY(-2px);
   }
 
@@ -714,5 +720,111 @@
     .produto-card img {
       width: 150px;
       height: 150px;
+    }
+  }
+
+  /* Estilos do Carrossel */
+  .carrossel-container {
+    position: relative;
+    width: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+  }
+
+  .carrossel-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .carrossel-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 2rem;
+  }
+
+  .carrossel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2c2c2c;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  .carrossel-btn:hover {
+    background: #4a4a4a;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .prev-btn {
+    left: 0;
+  }
+
+  .next-btn {
+    right: 0;
+  }
+
+  .carrossel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3a3a3a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background: #43ff0f;
+    transform: scale(1.2);
+  }
+
+  /* Ajustes responsivos do carrossel */
+  @media (max-width: 768px) {
+    .carrossel-container {
+      padding: 0 30px;
+    }
+
+    .carrossel-btn {
+      width: 35px;
+      height: 35px;
+      font-size: 1.2rem;
+    }
+
+    .produto-card {
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carrossel-container {
+      padding: 0 25px;
+    }
+
+    .carrossel-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
+
+    .produto-card {
+      min-width: 200px;
     }
   }

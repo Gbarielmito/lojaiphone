@@ -274,3 +274,69 @@ function aumentarQuantidade(button) {
       });
     });
   });
+
+  // Funções do Carrossel
+  document.addEventListener('DOMContentLoaded', function() {
+    const carrossel = document.querySelector('.carrossel-slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.carrossel-dots');
+    const cards = document.querySelectorAll('.produto-card');
+    
+    let currentIndex = 0;
+    const cardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    const totalSlides = Math.ceil(cards.length / cardsPerView);
+    
+    // Criar dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+    
+    function updateCarrossel() {
+        const offset = currentIndex * -100;
+        carrossel.style.transform = `translateX(${offset}%)`;
+        
+        // Atualizar dots
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        // Atualizar estado dos botões
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentIndex === totalSlides - 1 ? '0.5' : '1';
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarrossel();
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarrossel();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+            updateCarrossel();
+        }
+    });
+    
+    // Atualizar carrossel quando a janela for redimensionada
+    window.addEventListener('resize', () => {
+        const newCardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+        if (newCardsPerView !== cardsPerView) {
+            location.reload();
+        }
+    });
+    
+    // Inicializar carrossel
+    updateCarrossel();
+  });
