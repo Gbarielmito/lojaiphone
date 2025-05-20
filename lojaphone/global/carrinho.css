@@ -268,6 +268,8 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
   }
 
   .popup-content {
@@ -663,8 +665,8 @@
     align-items: center;
     gap: 1rem;
     border: 1px solid #3a3a3a;
-    flex: 0 0 100%;
-    margin: 0 1rem;
+    flex: 0 0 calc(25% - 0.75rem);
+    margin: 0 0.25rem;
   }
 
   .produto-card:hover {
@@ -674,8 +676,8 @@
   }
 
   .produto-card img {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     transition: transform 0.3s ease;
   }
@@ -686,28 +688,28 @@
 
   .produto-card h3 {
     color: #b3b3b3;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    margin: 0.4rem 0;
   }
 
   .produto-card .preco {
     color: #e5e5e5;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
   }
 
   .btn-adicionar {
     background: #64d348;
     color: #262626;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.3rem;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    max-width: 200px;
+    max-width: 160px;
   }
 
   .btn-adicionar:hover {
@@ -715,20 +717,22 @@
     transform: translateY(-2px);
   }
 
-  /* Responsividade para produtos recomendados */
-  @media (max-width: 768px) {
-    .grid-produtos {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
+  /* Ajustes responsivos do carrossel */
+  @media (max-width: 1200px) {
     .produto-card {
-      padding: 1rem;
+      flex: 0 0 calc(33.333% - 0.75rem);
     }
+  }
 
-    .produto-card img {
-      width: 150px;
-      height: 150px;
+  @media (max-width: 992px) {
+    .produto-card {
+      flex: 0 0 calc(50% - 0.75rem);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .produto-card {
+      flex: 0 0 calc(100% - 0.75rem);
     }
   }
 
@@ -749,7 +753,7 @@
   .carrossel-slide {
     display: flex;
     transition: transform 0.5s ease;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .carrossel-btn {
@@ -847,5 +851,139 @@
     .produto-card img {
       width: 160px;
       height: 160px;
+    }
+  }
+
+  /* Animação de Sucesso */
+  .animacao-sucesso {
+    text-align: center;
+    padding: 2rem;
+    animation: slideIn 0.5s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .checkmark-circle {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    background: #4CAF50;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 30px;
+    height: 60px;
+    border-right: 4px solid white;
+    border-bottom: 4px solid white;
+    animation: checkmark 0.5s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  @keyframes checkmark {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+  }
+
+  .animacao-sucesso h3 {
+    color: #2c2c2c;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease-out 0.8s forwards;
+    opacity: 0;
+  }
+
+  .animacao-sucesso p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease-out 1s forwards;
+    opacity: 0;
+  }
+
+  .detalhes-compra {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    animation: fadeIn 0.5s ease-out 1.2s forwards;
+    opacity: 0;
+  }
+
+  .detalhe-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+  }
+
+  .detalhe-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .detalhe-item i {
+    font-size: 1.5rem;
+    color: #4CAF50;
+  }
+
+  .btn-voltar {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease-out 1.4s forwards;
+    opacity: 0;
+  }
+
+  .btn-voltar:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }

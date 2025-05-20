@@ -130,6 +130,12 @@
                 <p class="preco">R$ 4.999,00</p>
                 <button class="btn-adicionar">Adicionar ao Carrinho</button>
               </div>
+              <div class="produto-card">
+                <img src="./produtos/Svintequatro/img/repss.png" alt="iPhone 12">
+                <h3>Samsung Galaxy S24</h3>
+                <p class="preco">R$ 4.999,00</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+              </div>
             </div>
           </div>
           <button class="carrossel-btn next-btn">
@@ -200,7 +206,7 @@
           </div>
 
           <div class="form-group">
-            <label for="cupom">Cupom de desconto</label>
+            <label for="cupom">Cupom de desconto (opcional)</label>
             <input type="text" id="cupom">
           </div>
           
@@ -274,6 +280,28 @@
             Confirmar Pagamento
           </button>
         </form>
+
+        <!-- Animação de Sucesso -->
+        <div id="animacao-sucesso" class="animacao-sucesso" style="display: none;">
+          <div class="checkmark-circle">
+            <div class="checkmark"></div>
+          </div>
+          <h3>Pagamento Realizado com Sucesso!</h3>
+          <p>Obrigado por comprar conosco</p>
+          <div class="detalhes-compra">
+            <div class="detalhe-item">
+              <i class="ri-mail-line"></i>
+              <span>Um e-mail de confirmação foi enviado</span>
+            </div>
+            <div class="detalhe-item">
+              <i class="ri-truck-line"></i>
+              <span>Seu pedido será enviado em breve</span>
+            </div>
+          </div>
+          <button onclick="window.location.href='../index.html'" class="btn-voltar">
+            Voltar para a Loja
+          </button>
+        </div>
       </div>
     </div>
 

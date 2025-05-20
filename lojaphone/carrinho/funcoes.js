@@ -145,47 +145,126 @@ function aumentarQuantidade(button) {
 
   // Adiciona máscara para CPF
   document.getElementById('cpf').addEventListener('input', function(e) {
+    // Remove tudo que não for número
     let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 11) {
+    
+    // Limita a exatamente 11 dígitos
+    if (value.length > 11) {
+      value = value.slice(0, 11);
+    }
+    
+    // Aplica a máscara do CPF (000.000.000-00)
+    if (value.length > 9) {
       value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-      e.target.value = value;
+    } else if (value.length > 6) {
+      value = value.replace(/(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+    } else if (value.length > 3) {
+      value = value.replace(/(\d{3})(\d{3})/, '$1.$2');
     }
+    
+    e.target.value = value;
   });
 
-  // Adiciona máscara para número do cartão
+  // Validação do nome do titular
+  document.getElementById('nome-titular').addEventListener('input', function(e) {
+    // Remove apenas números e caracteres especiais, mantendo acentos e espaços
+    let value = e.target.value.replace(/[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+    e.target.value = value;
+  });
+
+  // Validação do número do cartão
   document.getElementById('numero-cartao').addEventListener('input', function(e) {
+    // Remove tudo que não for número
     let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 16) {
-      value = value.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, '$1 $2 $3 $4');
-      e.target.value = value;
+    
+    // Limita a exatamente 16 dígitos
+    if (value.length > 16) {
+      value = value.slice(0, 16);
+    }
+    
+    // Adiciona espaço a cada 4 dígitos
+    value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+    e.target.value = value;
+
+    // Adiciona classe de validação visual
+    if (value.replace(/\s/g, '').length === 16) {
+      e.target.classList.add('valid');
+      e.target.classList.remove('invalid');
+    } else {
+      e.target.classList.add('invalid');
+      e.target.classList.remove('valid');
     }
   });
 
-  // Adiciona máscara para validade
+  // Validação da validade
   document.getElementById('validade').addEventListener('input', function(e) {
+    // Remove tudo que não for número
     let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 4) {
-      value = value.replace(/(\d{2})(\d{2})/, '$1/$2');
-      e.target.value = value;
+    
+    // Limita a exatamente 4 dígitos
+    if (value.length > 4) {
+      value = value.slice(0, 4);
+    }
+    
+    // Adiciona barra após os primeiros 2 dígitos
+    if (value.length > 2) {
+      value = value.slice(0, 2) + '/' + value.slice(2);
+    }
+    
+    // Validação do mês (01-12)
+    const mes = parseInt(value.slice(0, 2));
+    if (mes > 12) {
+      value = '12' + value.slice(2);
+    }
+    
+    e.target.value = value;
+
+    // Adiciona classe de validação visual
+    if (value.replace(/\D/g, '').length === 4) {
+      e.target.classList.add('valid');
+      e.target.classList.remove('invalid');
+    } else {
+      e.target.classList.add('invalid');
+      e.target.classList.remove('valid');
     }
   });
 
-  // Adiciona máscara para CVV
+  // Validação do CVV
   document.getElementById('cvv').addEventListener('input', function(e) {
+    // Remove tudo que não for número
     let value = e.target.value.replace(/\D/g, '');
+    // Limita a 3 dígitos
     if (value.length > 3) {
       value = value.slice(0, 3);
     }
     e.target.value = value;
+
+    // Adiciona classe de validação visual
+    if (value.length === 3) {
+      e.target.classList.add('valid');
+      e.target.classList.remove('invalid');
+    } else {
+      e.target.classList.add('invalid');
+      e.target.classList.remove('valid');
+    }
   });
 
   // Adiciona máscara para CEP
   document.getElementById('cep').addEventListener('input', function(e) {
+    // Remove tudo que não for número
     let value = e.target.value.replace(/\D/g, '');
-    if (value.length <= 8) {
-      value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
-      e.target.value = value;
+    
+    // Limita a exatamente 8 dígitos
+    if (value.length > 8) {
+      value = value.slice(0, 8);
     }
+    
+    // Aplica a máscara do CEP (00000-000)
+    if (value.length > 5) {
+      value = value.replace(/(\d{5})(\d{3})/, '$1-$2');
+    }
+    
+    e.target.value = value;
   });
 
   // Busca endereço pelo CEP
@@ -249,8 +328,16 @@ function aumentarQuantidade(button) {
     } else {
       // Simula o processamento do pagamento para outros métodos
       setTimeout(() => {
-        alert('Pagamento realizado com sucesso!');
-        window.location.href = '../index.html';
+        // Esconde o formulário
+        form.style.display = 'none';
+        
+        // Mostra a animação de sucesso
+        const animacaoSucesso = document.getElementById('animacao-sucesso');
+        animacaoSucesso.style.display = 'block';
+        
+        // Toca um som de sucesso (opcional)
+        const audio = new Audio('./carrinho/sons/success.mp3');
+        audio.play().catch(() => {}); // Ignora erros se o navegador bloquear o áudio
       }, 2000);
     }
   });
@@ -284,16 +371,8 @@ function aumentarQuantidade(button) {
     const cards = document.querySelectorAll('.produto-card');
     
     let currentIndex = 0;
-    const cardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    const cardsPerView = 4; // Sempre mostra 4 cards
     const totalSlides = Math.ceil(cards.length / cardsPerView);
-    
-    // Ajustar largura dos cards
-    function ajustarCards() {
-        const width = window.innerWidth < 768 ? 'calc(100% - 2rem)' : window.innerWidth < 1024 ? 'calc(50% - 2rem)' : 'calc(33.333% - 2rem)';
-        cards.forEach(card => {
-            card.style.flex = `0 0 ${width}`;
-        });
-    }
     
     // Criar dots
     function criarDots() {
@@ -308,8 +387,7 @@ function aumentarQuantidade(button) {
     }
     
     function updateCarrossel() {
-        const cardWidth = window.innerWidth < 768 ? 100 : window.innerWidth < 1024 ? 50 : 33.333;
-        const offset = currentIndex * -cardWidth;
+        const offset = currentIndex * -100;
         carrossel.style.transform = `translateX(${offset}%)`;
         
         // Atualizar dots
@@ -341,19 +419,28 @@ function aumentarQuantidade(button) {
         }
     });
     
-    // Atualizar carrossel quando a janela for redimensionada
-    window.addEventListener('resize', () => {
-        const newCardsPerView = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-        if (newCardsPerView !== cardsPerView) {
-            ajustarCards();
-            criarDots();
-            currentIndex = 0;
-            updateCarrossel();
-        }
-    });
-    
     // Inicializar carrossel
-    ajustarCards();
     criarDots();
     updateCarrossel();
+  });
+
+  // Validação do nome completo
+  document.getElementById('nome').addEventListener('input', function(e) {
+    // Remove apenas números e caracteres especiais, mantendo acentos e espaços
+    let value = e.target.value.replace(/[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+    e.target.value = value;
+  });
+
+  // Validação da cidade
+  document.getElementById('cidade').addEventListener('input', function(e) {
+    // Remove apenas números e caracteres especiais, mantendo acentos e espaços
+    let value = e.target.value.replace(/[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+    e.target.value = value;
+  });
+
+  // Validação do complemento
+  document.getElementById('complemento').addEventListener('input', function(e) {
+    // Remove apenas números e caracteres especiais, mantendo acentos e espaços
+    let value = e.target.value.replace(/[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g, '');
+    e.target.value = value;
   });
