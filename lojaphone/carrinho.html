@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="./global/carrinho.css">
     <link rel="stylesheet" href="./global/animacoes.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+    </style>
   </head>
   <body>
     <div class="floating-particles">
@@ -48,32 +52,13 @@
       </h2>
       
       <div id="carrinho-items">
-        <!-- Exemplo de item no carrinho -->
-        <div class="carrinho-item">
-          <img src="./produtos/assets/img/iphonenaturall.png" alt="iPhone 15 Pro Max">
-          <div class="carrinho-item-info">
-            <h3>iPhone 15 Pro Max</h3>
-            <p class="carrinho-item-preco">R$ 8.600,00</p>
-            <div class="carrinho-item-quantidade">
-              <button onclick="diminuirQuantidade(this)">
-                <i class="ri-subtract-line"></i>
-              </button>
-              <span>1</span>
-              <button onclick="aumentarQuantidade(this)">
-                <i class="ri-add-line"></i>
-              </button>
-            </div>
-          </div>
-          <button onclick="removerItem(this)" class="remover-item">
-            <i class="ri-delete-bin-line"></i>
-          </button>
-        </div>
+        <!-- O carrinho começa vazio -->
       </div>
 
       <div class="carrinho-total">
         <div class="total-info">
           <span>Subtotal:</span>
-          <span>R$ 8.600,00</span>
+          <span>R$ 0,00</span>
         </div>
         <div class="total-info">
           <span>Frete:</span>
@@ -81,7 +66,7 @@
         </div>
         <div class="total-info total-final">
           <span>Total:</span>
-          <span>R$ <span id="total-carrinho">8.600,00</span></span>
+          <span>R$ <span id="total-carrinho">0,00</span></span>
         </div>
       </div>
 
@@ -89,9 +74,48 @@
         <button onclick="window.location.href='../index.html'" class="btn-continuar">
           <i class="ri-arrow-left-line"></i> Continuar Comprando
         </button>
+        <button class="btn-pendentes" onclick="verPedidosPendentes()">
+          <i class="ri-time-line"></i>
+          Pedidos Pendentes
+        </button>
+        <button class="btn-confirmados" onclick="verPedidosConfirmados()">
+          <i class="ri-check-double-line"></i>
+          Pedidos Confirmados
+        </button>
         <button onclick="finalizarCompra()" class="btn-finalizar">
           Finalizar Compra <i class="ri-arrow-right-line"></i>
         </button>
+      </div>
+
+      <!-- Popup de Pedidos Confirmados -->
+      <div class="popup-confirmados">
+        <div class="popup-content">
+          <div class="popup-header">
+            <h2>Pedidos Confirmados</h2>
+            <button class="fechar-popup" onclick="fecharPedidosConfirmados()">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          <div class="confirmados-lista">
+            <!-- Os pedidos confirmados serão inseridos aqui via JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Popup de Pedidos Pendentes -->
+      <div id="popup-pedidos" class="popup-pedidos">
+        <div class="popup-content">
+          <div class="popup-header">
+            <h2><i class="ri-time-line"></i> Pedidos Pendentes</h2>
+            <button class="close-popup" onclick="fecharPopupPedidos()">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          
+          <div class="pedidos-lista">
+            <!-- Lista de pedidos pendentes começa vazia -->
+          </div>
+        </div>
       </div>
 
       <!-- Produtos Recomendados -->
@@ -115,25 +139,43 @@
               <div class="produto-card">
                 <img src="./produtos/assets/img/iphone14promaxroxo.png" alt="iPhone 14" class="quartorze">
                 <h3>iPhone 14 Pro Max</h3>
-                <p class="preco">R$ 6.999,00</p>
+                <p class="preco">R$ 4.900,00</p>
                 <button class="btn-adicionar">Adicionar ao Carrinho</button>
               </div>
               <div class="produto-card">
                 <img src="./produtos/assets/img/iphone13promaxrep.png" alt="iPhone 13">
                 <h3>iPhone 13 Pro Max</h3>
-                <p class="preco">R$ 5.999,00</p>
+                <p class="preco">R$ 3.800,00</p>
                 <button class="btn-adicionar">Adicionar ao Carrinho</button>
               </div>
               <div class="produto-card">
                 <img src="./produtos/iphone12/img/iphone12promaxgold.png" alt="iPhone 12">
                 <h3>iPhone 12 Pro Max</h3>
-                <p class="preco">R$ 4.999,00</p>
+                <p class="preco">R$ 2.300,00</p>
                 <button class="btn-adicionar">Adicionar ao Carrinho</button>
               </div>
               <div class="produto-card">
-                <img src="./produtos/Svintequatro/img/repss.png" alt="iPhone 12">
+                <img src="./produtos/Svintequatro/img/repss.png" alt="galaxy 24">
                 <h3>Samsung Galaxy S24</h3>
-                <p class="preco">R$ 4.999,00</p>
+                <p class="preco">R$ 3.000,00</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+              </div>
+              <div class="produto-card">
+                <img src="./produtos/Svintetres/img/repgalaxy.png" alt="galaxy 23">
+                <h3>Samsung Galaxy S23</h3>
+                <p class="preco">R$ 2.400,00</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+              </div>
+              <div class="produto-card">
+                <img src="./produtos/Svintetresultra/img/repultra.png" alt="ultra 23">
+                <h3>Samsung Galaxy S23 Ultra</h3>
+                <p class="preco">R$ 2.900,00</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+              </div>
+              <div class="produto-card">
+                <img src="./produtos/xiaominote13/img/note13blue.png" alt="note 13">
+                <h3>Xiaomi Note 13</h3>
+                <p class="preco">R$ 1.200,00</p>
                 <button class="btn-adicionar">Adicionar ao Carrinho</button>
               </div>
             </div>
