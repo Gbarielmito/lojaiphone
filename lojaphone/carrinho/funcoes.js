@@ -539,7 +539,7 @@ function aumentarQuantidade(button) {
     const cards = document.querySelectorAll('.produto-card');
     
     let currentIndex = 0;
-    const cardsPerView = 4; // Sempre mostra 4 cards
+    const cardsPerView = window.innerWidth > 1200 ? 4 : window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
     const totalSlides = Math.ceil(cards.length / cardsPerView);
     
     // Criar dots
@@ -555,21 +555,22 @@ function aumentarQuantidade(button) {
     }
     
     function updateCarrossel() {
+        const cardWidth = 100 / cardsPerView;
         const offset = currentIndex * -100;
         carrossel.style.transform = `translateX(${offset}%)`;
+        
+        // Atualizar estado dos botões
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentIndex === totalSlides - 1 ? '0.5' : '1';
         
         // Atualizar dots
         document.querySelectorAll('.dot').forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
-        
-        // Atualizar estado dos botões
-        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-        nextBtn.style.opacity = currentIndex === totalSlides - 1 ? '0.5' : '1';
     }
     
     function goToSlide(index) {
-        currentIndex = index;
+        currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
         updateCarrossel();
     }
     
@@ -583,6 +584,16 @@ function aumentarQuantidade(button) {
     nextBtn.addEventListener('click', () => {
         if (currentIndex < totalSlides - 1) {
             currentIndex++;
+            updateCarrossel();
+        }
+    });
+
+    // Atualizar cards por visualização quando a janela for redimensionada
+    window.addEventListener('resize', () => {
+        const newCardsPerView = window.innerWidth > 1200 ? 4 : window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        if (newCardsPerView !== cardsPerView) {
+            currentIndex = 0;
+            criarDots();
             updateCarrossel();
         }
     });

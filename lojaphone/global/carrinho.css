@@ -791,8 +791,7 @@
     align-items: center;
     gap: 1rem;
     border: 1px solid #3a3a3a;
-    flex: 0 0 calc(25% - 1rem);
-    margin: 0 0.25rem;
+    flex: 0 0 calc(25% - 1.125rem);
     min-width: 0;
   }
 
@@ -872,19 +871,42 @@
   /* Ajustes responsivos do carrossel */
   @media (max-width: 1200px) {
     .produto-card {
-      flex: 0 0 calc(33.333% - 1rem);
+        flex: 0 0 calc(33.333% - 1rem);
     }
   }
 
   @media (max-width: 992px) {
     .produto-card {
-      flex: 0 0 calc(50% - 1rem);
+        flex: 0 0 calc(50% - 0.75rem);
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
+    .carrossel-container {
+        padding: 0 45px;
+    }
+
+    .carrossel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
     .produto-card {
-      flex: 0 0 calc(100% - 1rem);
+        flex: 0 0 calc(100% - 1rem);
+        padding: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carrossel-container {
+        padding: 0 35px;
+    }
+
+    .carrossel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
   }
 
@@ -892,34 +914,33 @@
   .carrossel-container {
     position: relative;
     width: 100%;
-    padding: 0 40px;
+    padding: 0 60px;
     margin: 0 auto;
     overflow: hidden;
-  }
+}
 
-  .carrossel-wrapper {
+.carrossel-wrapper {
     overflow: hidden;
     position: relative;
     width: 100%;
-    padding: 0 10px;
-  }
+}
 
-  .carrossel-slide {
+.carrossel-slide {
     display: flex;
     transition: transform 0.5s ease;
-    gap: 1rem;
-    padding: 0 10px;
-  }
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
 
-  .carrossel-btn {
+.carrossel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: #2c2c2c;
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -928,95 +949,88 @@
     font-size: 1.5rem;
     transition: all 0.3s ease;
     z-index: 2;
-  }
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
-  .carrossel-btn:hover {
+.carrossel-btn:hover {
     background: #4a4a4a;
     transform: translateY(-50%) scale(1.1);
-  }
+}
 
-  .prev-btn {
+.prev-btn {
     left: 0;
-  }
+}
 
-  .next-btn {
+.next-btn {
     right: 0;
-  }
+}
 
-  .carrossel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #3a3a3a;
-    cursor: pointer;
+.produto-card {
+    background: #2c2c2c;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
     transition: all 0.3s ease;
-  }
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #3a3a3a;
+    flex: 0 0 calc(25% - 1.125rem);
+    min-width: 0;
+}
 
-  .dot.active {
-    background: #43ff0f;
-    transform: scale(1.2);
-  }
-
-  /* Ajustes responsivos do carrossel */
-  @media (max-width: 768px) {
-    .carrossel-container {
-      padding: 0 30px;
-    }
-
-    .carrossel-slide {
-      gap: 0;
-    }
-
+/* Ajustes responsivos do carrossel */
+@media (max-width: 1200px) {
     .produto-card {
-      min-width: calc(100% - 2rem);
-      padding: 1.2rem;
-      margin: 0 1rem;
+        flex: 0 0 calc(33.333% - 1rem);
     }
+}
 
-    .produto-card img {
-      width: 180px;
-      height: 180px;
+@media (max-width: 992px) {
+    .produto-card {
+        flex: 0 0 calc(50% - 0.75rem);
     }
-  }
+}
 
-  @media (max-width: 480px) {
+@media (max-width: 768px) {
     .carrossel-container {
-      padding: 0 25px;
+        padding: 0 45px;
     }
 
     .carrossel-btn {
-      width: 30px;
-      height: 30px;
-      font-size: 1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 
     .produto-card {
-      min-width: calc(100% - 2rem);
-      padding: 1rem;
-      margin: 0 1rem;
+        flex: 0 0 calc(100% - 1rem);
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrossel-container {
+        padding: 0 35px;
     }
 
-    .produto-card img {
-      width: 160px;
-      height: 160px;
+    .carrossel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
-  }
+}
 
-  /* Animação de Sucesso */
-  .animacao-sucesso {
+/* Animação de Sucesso */
+.animacao-sucesso {
     text-align: center;
     padding: 2rem;
     animation: slideIn 0.5s ease-out;
-  }
+}
 
-  @keyframes slideIn {
+@keyframes slideIn {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -1025,9 +1039,9 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+}
 
-  .checkmark-circle {
+.checkmark-circle {
     width: 80px;
     height: 80px;
     position: relative;
@@ -1035,18 +1049,18 @@
     border-radius: 50%;
     margin: 0 auto 2rem;
     animation: scaleIn 0.5s ease-out;
-  }
+}
 
-  @keyframes scaleIn {
+@keyframes scaleIn {
     from {
       transform: scale(0);
     }
     to {
       transform: scale(1);
     }
-  }
+}
 
-  .checkmark {
+.checkmark {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1057,9 +1071,9 @@
     border-bottom: 4px solid white;
     animation: checkmark 0.5s ease-out 0.5s forwards;
     opacity: 0;
-  }
+}
 
-  @keyframes checkmark {
+@keyframes checkmark {
     from {
       opacity: 0;
       transform: translate(-50%, -50%) rotate(45deg) scale(0);
@@ -1068,51 +1082,51 @@
       opacity: 1;
       transform: translate(-50%, -50%) rotate(45deg) scale(1);
     }
-  }
+}
 
-  .animacao-sucesso h3 {
+.animacao-sucesso h3 {
     color: #2c2c2c;
     font-size: 1.8rem;
     margin-bottom: 1rem;
     animation: fadeIn 0.5s ease-out 0.8s forwards;
     opacity: 0;
-  }
+}
 
-  .animacao-sucesso p {
+.animacao-sucesso p {
     color: #666;
     font-size: 1.1rem;
     margin-bottom: 2rem;
     animation: fadeIn 0.5s ease-out 1s forwards;
     opacity: 0;
-  }
+}
 
-  .detalhes-compra {
+.detalhes-compra {
     background: #f8f9fa;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 2rem 0;
     animation: fadeIn 0.5s ease-out 1.2s forwards;
     opacity: 0;
-  }
+}
 
-  .detalhe-item {
+.detalhe-item {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
     color: #2c2c2c;
-  }
+}
 
-  .detalhe-item:last-child {
+.detalhe-item:last-child {
     margin-bottom: 0;
-  }
+}
 
-  .detalhe-item i {
+.detalhe-item i {
     font-size: 1.5rem;
     color: #4CAF50;
-  }
+}
 
-  .btn-voltar {
+.btn-voltar {
     background: #4CAF50;
     color: white;
     border: none;
@@ -1124,15 +1138,15 @@
     transition: all 0.3s ease;
     animation: fadeIn 0.5s ease-out 1.4s forwards;
     opacity: 0;
-  }
+}
 
-  .btn-voltar:hover {
+.btn-voltar:hover {
     background: #45a049;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
@@ -1141,10 +1155,10 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+}
 
-  /* Estilos para o botão de pedidos pendentes */
-  .btn-pedidos {
+/* Estilos para o botão de pedidos pendentes */
+.btn-pedidos {
     background: #2c2c2c;
     color: white;
     padding: 1rem 2rem;
@@ -1157,16 +1171,16 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
+}
 
-  .btn-pedidos:hover {
+.btn-pedidos:hover {
     background: #4a4a4a;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  /* Estilos para o popup de pedidos pendentes */
-  .popup-pedidos {
+/* Estilos para o popup de pedidos pendentes */
+.popup-pedidos {
     display: none;
     position: fixed;
     top: 0;
@@ -1178,97 +1192,97 @@
     animation: fadeIn 0.3s ease;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-  }
+}
 
-  .pedidos-lista {
+.pedidos-lista {
     max-height: 70vh;
     overflow-y: auto;
     padding: 1rem;
-  }
+}
 
-  .pedido-item {
+.pedido-item {
     background: #ffffff;
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-  }
+}
 
-  .pedido-item.cancelando {
+.pedido-item.cancelando {
     opacity: 0;
     transform: translateX(20px);
-  }
+}
 
-  .pedido-header {
+.pedido-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
-  }
+}
 
-  .pedido-numero {
+.pedido-numero {
     font-weight: bold;
     color: #2c2c2c;
     font-size: 1.1rem;
-  }
+}
 
-  .pedido-status {
+.pedido-status {
     background: #fff3cd;
     color: #856404;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-  }
+}
 
-  .pedido-status.pix {
+.pedido-status.pix {
     background: #e8f4ff;
     color: #0084ff;
-  }
+}
 
-  .pedido-status.boleto {
+.pedido-status.boleto {
     background: #fff3e0;
     color: #ff9800;
-  }
+}
 
-  .pedido-produtos {
+.pedido-produtos {
     margin-bottom: 1rem;
-  }
+}
 
-  .pedido-produto {
+.pedido-produto {
     display: flex;
     gap: 1rem;
     align-items: center;
     padding: 1rem;
     background: #f8f9fa;
     border-radius: 8px;
-  }
+}
 
-  .pedido-produto img {
+.pedido-produto img {
     width: 80px;
     height: 80px;
     object-fit: contain;
-  }
+}
 
-  .pedido-produto-info h4 {
+.pedido-produto-info h4 {
     margin: 0 0 0.5rem 0;
     color: #2c2c2c;
-  }
+}
 
-  .pedido-produto-info p {
+.pedido-produto-info p {
     margin: 0.2rem 0;
     color: #666;
-  }
+}
 
-  .pedido-produto-preco {
+.pedido-produto-preco {
     font-weight: bold;
     color: #2c2c2c;
-  }
+}
 
-  .pedido-total {
+.pedido-total {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1276,15 +1290,15 @@
     border-top: 1px solid #eee;
     font-weight: bold;
     font-size: 1.1rem;
-  }
+}
 
-  .pedido-acoes {
+.pedido-acoes {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-  }
+}
 
-  .btn-pagar {
+.btn-pagar {
     background: #4CAF50;
     color: white;
     border: none;
@@ -1296,14 +1310,14 @@
     gap: 0.5rem;
     transition: all 0.3s ease;
     flex: 1;
-  }
+}
 
-  .btn-pagar:hover {
+.btn-pagar:hover {
     background: #45a049;
     transform: translateY(-2px);
-  }
+}
 
-  .btn-cancelar {
+.btn-cancelar {
     background: #dc3545;
     color: white;
     border: none;
@@ -1315,53 +1329,53 @@
     gap: 0.5rem;
     transition: all 0.3s ease;
     flex: 1;
-  }
+}
 
-  .btn-cancelar:hover {
+.btn-cancelar:hover {
     background: #c82333;
     transform: translateY(-2px);
-  }
+}
 
-  /* Responsividade */
-  @media (max-width: 768px) {
+/* Responsividade */
+@media (max-width: 768px) {
     .pedido-produto {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column;
+        text-align: center;
     }
 
     .pedido-acoes {
-      flex-direction: column;
+        flex-direction: column;
     }
 
     .btn-pedidos {
-      width: 100%;
-      justify-content: center;
+        width: 100%;
+        justify-content: center;
     }
-  }
+}
 
-  .mensagem-boleto {
+.mensagem-boleto {
     background: #e8f4ff;
     padding: 1.5rem;
     border-radius: 8px;
     margin: 1.5rem 0;
     border: 1px solid #0084ff;
     text-align: center;
-  }
+}
 
-  .mensagem-boleto p {
+.mensagem-boleto p {
     color: #333;
     font-size: 0.95rem;
     font-weight: 400;
     letter-spacing: -0.2px;
-  }
+}
 
-  .mensagem-boleto p:first-child {
+.mensagem-boleto p:first-child {
     color: #0084ff;
     font-weight: 500;
-  }
+}
 
-  /* Estilos para o popup de pedidos confirmados */
-  .popup-confirmados {
+/* Estilos para o popup de pedidos confirmados */
+.popup-confirmados {
     display: none;
     position: fixed;
     top: 0;
@@ -1373,56 +1387,56 @@
     animation: fadeIn 0.3s ease;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-  }
+}
 
-  .pedido-confirmado {
+.pedido-confirmado {
     background: #ffffff;
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .pedido-confirmado-header {
+.pedido-confirmado-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
-  }
+}
 
-  .pedido-confirmado-numero {
+.pedido-confirmado-numero {
     font-weight: bold;
     color: #2c2c2c;
     font-size: 1.1rem;
-  }
+}
 
-  .pedido-confirmado-status {
+.pedido-confirmado-status {
     background: #e8f5e9;
     color: #2e7d32;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-  }
+}
 
-  .pedido-confirmado-timeline {
+.pedido-confirmado-timeline {
     margin: 1.5rem 0;
     padding: 1.5rem;
     background: #f8f9fa;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
+}
 
-  .timeline-item {
+.timeline-item {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     padding: 0.5rem 0;
     position: relative;
-  }
+}
 
-  .timeline-item:not(:last-child)::after {
+.timeline-item:not(:last-child)::after {
     content: '';
     position: absolute;
     left: 1.2rem;
@@ -1431,9 +1445,9 @@
     width: 2px;
     background: linear-gradient(to bottom, #4CAF50, #ffc107);
     opacity: 0.3;
-  }
+}
 
-  .timeline-icon {
+.timeline-icon {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -1445,27 +1459,27 @@
     z-index: 1;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .timeline-item.completed .timeline-icon {
+.timeline-item.completed .timeline-icon {
     background: linear-gradient(135deg, #4CAF50, #45a049);
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-  }
+}
 
-  .timeline-item.pending .timeline-icon {
+.timeline-item.pending .timeline-icon {
     background: linear-gradient(135deg, #ffc107, #ff9800);
     box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
-  }
+}
 
-  .timeline-item.completed .timeline-icon i {
+.timeline-item.completed .timeline-icon i {
     animation: scaleIn 0.3s ease-out;
-  }
+}
 
-  .timeline-item.pending .timeline-icon i {
+.timeline-item.pending .timeline-icon i {
     animation: pulse 2s infinite;
-  }
+}
 
-  @keyframes pulse {
+@keyframes pulse {
     0% {
         transform: scale(1);
     }
@@ -1475,68 +1489,68 @@
     100% {
         transform: scale(1);
     }
-  }
+}
 
-  .timeline-content {
+.timeline-content {
     flex: 1;
     padding-left: 1rem;
-  }
+}
 
-  .timeline-title {
+.timeline-title {
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: -0.2px;
     color: #2c2c2c;
     margin-bottom: 0.3rem;
-  }
+}
 
-  .timeline-date {
+.timeline-date {
     font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: -0.2px;
     color: #666;
-  }
+}
 
-  .timeline-item.pending .timeline-icon {
+.timeline-item.pending .timeline-icon {
     background: #ffc107;
-  }
+}
 
-  .timeline-item.completed .timeline-icon {
+.timeline-item.completed .timeline-icon {
     background: #4CAF50;
-  }
+}
 
-  /* Responsividade */
-  @media (max-width: 768px) {
+/* Responsividade */
+@media (max-width: 768px) {
     .carrinho-botoes {
-      flex-direction: column;
+        flex-direction: column;
     }
 
     .btn-confirmados {
-      width: 100%;
-      justify-content: center;
+        width: 100%;
+        justify-content: center;
     }
 
     .timeline-item {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .timeline-item:not(:last-child)::after {
-      left: 1.2rem;
-      top: 2.5rem;
-      height: calc(100% - 2.5rem);
+        left: 1.2rem;
+        top: 2.5rem;
+        height: calc(100% - 2.5rem);
     }
-  }
+}
 
-  .pedido-confirmado-produtos {
+.pedido-confirmado-produtos {
     margin: 1.5rem 0;
     padding: 1.5rem;
     background: #f8f9fa;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
+}
 
-  .pedido-confirmado-produto {
+.pedido-confirmado-produto {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -1545,53 +1559,53 @@
     border-radius: 8px;
     margin-bottom: 1rem;
     transition: all 0.3s ease;
-  }
+}
 
-  .pedido-confirmado-produto:last-child {
+.pedido-confirmado-produto:last-child {
     margin-bottom: 0;
-  }
+}
 
-  .pedido-confirmado-produto:hover {
+.pedido-confirmado-produto:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .pedido-confirmado-produto img {
+.pedido-confirmado-produto img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     transition: transform 0.3s ease;
-  }
+}
 
-  .pedido-confirmado-produto:hover img {
+.pedido-confirmado-produto:hover img {
     transform: scale(1.05);
-  }
+}
 
-  .pedido-confirmado-produto-info {
+.pedido-confirmado-produto-info {
     flex: 1;
-  }
+}
 
-  .pedido-confirmado-produto-info h4 {
+.pedido-confirmado-produto-info h4 {
     color: #2c2c2c;
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
     letter-spacing: -0.2px;
-  }
+}
 
-  .pedido-confirmado-produto-info p {
+.pedido-confirmado-produto-info p {
     color: #666;
     font-size: 0.9rem;
     margin: 0.2rem 0;
-  }
+}
 
-  .pedido-confirmado-produto-preco {
+.pedido-confirmado-produto-preco {
     font-weight: 600;
     color: #2c2c2c;
     font-size: 1.1rem;
-  }
+}
 
-  .pedido-confirmado-total {
+.pedido-confirmado-total {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1601,9 +1615,9 @@
     font-weight: 600;
     font-size: 1.2rem;
     color: #2c2c2c;
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .pedido-confirmado-produto {
         flex-direction: column;
         text-align: center;
@@ -1618,25 +1632,25 @@
     .pedido-confirmado-produto-info {
         width: 100%;
     }
-  }
+}
 
-  .popup-confirmados .popup-header {
+.popup-confirmados .popup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #eee;
-  }
+}
 
-  .popup-confirmados .popup-header h2 {
+.popup-confirmados .popup-header h2 {
     color: #2c2c2c;
     font-size: 1.8rem;
     font-weight: 600;
     letter-spacing: -0.4px;
-  }
+}
 
-  .popup-confirmados .fechar-popup {
+.popup-confirmados .fechar-popup {
     background: none;
     border: none;
     font-size: 1.8rem;
@@ -1649,65 +1663,94 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-  }
+}
 
-  .popup-confirmados .fechar-popup:hover {
+.popup-confirmados .fechar-popup:hover {
     background: #f5f5f5;
     color: #ff4444;
     transform: rotate(90deg);
-  }
+}
 
-  /* Estilos para mensagem de sem pedidos */
-  .sem-pedidos {
+/* Estilos para mensagem de sem pedidos */
+.sem-pedidos {
     text-align: center;
     padding: 3rem 1rem;
     color: #666;
-  }
+}
 
-  .sem-pedidos i {
+.sem-pedidos i {
     font-size: 4rem;
     color: #ddd;
     margin-bottom: 1rem;
     display: block;
-  }
+}
 
-  .sem-pedidos p {
+.sem-pedidos p {
     font-size: 1.1rem;
     font-weight: 500;
     color: #666;
-  }
+}
 
-  /* Estilos para mensagem de sem pedidos pendentes */
-  .popup-pedidos .sem-pedidos {
+/* Estilos para mensagem de sem pedidos pendentes */
+.popup-pedidos .sem-pedidos {
     text-align: center;
     padding: 3rem 1rem;
     color: #666;
-  }
+}
 
-  .popup-pedidos .sem-pedidos i {
+.popup-pedidos .sem-pedidos i {
     font-size: 4rem;
     color: #ddd;
     margin-bottom: 1rem;
     display: block;
-  }
+}
 
-  .popup-pedidos .sem-pedidos p {
+.popup-pedidos .sem-pedidos p {
     font-size: 1.1rem;
     font-weight: 500;
     color: #666;
-  }
+}
 
-  .btn-pendentes i,
-  .btn-confirmados i {
+.btn-pendentes i,
+.btn-confirmados i {
     font-size: 1.2rem;
     margin-right: 0.5rem;
     transition: transform 0.3s ease;
-  }
+}
 
-  .btn-pendentes:hover i {
+.btn-pendentes:hover i {
     transform: rotate(180deg);
-  }
+}
 
-  .btn-confirmados:hover i {
+.btn-confirmados:hover i {
     transform: scale(1.2);
-  }
+}
+
+.carrossel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4a4a4a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+}
+
+.dot.active {
+    background: #64d348;
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
