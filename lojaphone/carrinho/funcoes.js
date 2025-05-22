@@ -6,6 +6,7 @@ function aumentarQuantidade(button) {
     let quantidade = parseInt(quantidadeElement.textContent);
     quantidadeElement.textContent = quantidade + 1;
     atualizarTotal();
+    salvarCarrinho();
     
     // Adiciona animação
     button.classList.add('clicked');
@@ -18,6 +19,7 @@ function aumentarQuantidade(button) {
     if (quantidade > 1) {
       quantidadeElement.textContent = quantidade - 1;
       atualizarTotal();
+      salvarCarrinho();
       
       // Adiciona animação
       button.classList.add('clicked');
@@ -32,6 +34,8 @@ function aumentarQuantidade(button) {
     setTimeout(() => {
       item.remove();
       atualizarTotal();
+      atualizarContadorCarrinho();
+      salvarCarrinho();
     }, 300);
   }
 
@@ -52,6 +56,9 @@ function aumentarQuantidade(button) {
     // Atualiza o total final
     document.getElementById('total-carrinho').textContent = 
       `${total.toFixed(2).replace('.', ',')}`;
+
+    // Atualiza o contador do carrinho
+    atualizarContadorCarrinho();
   }
 
   function finalizarCompra() {
@@ -496,6 +503,11 @@ function aumentarQuantidade(button) {
         document.querySelector('.total-info:first-child span:last-child').textContent = 'R$ 0,00';
         document.getElementById('total-carrinho').textContent = '0,00';
         
+        // Limpa o localStorage e atualiza o contador
+        localStorage.removeItem('carrinhoItems');
+        localStorage.setItem('quantidadeCarrinho', '0');
+        atualizarContadorCarrinho();
+        
         // Esconde o formulário
         form.style.display = 'none';
         
@@ -624,6 +636,33 @@ function aumentarQuantidade(button) {
     e.target.value = value;
   });
 
+  // Função para atualizar o contador do carrinho
+  function atualizarContadorCarrinho() {
+    const items = document.querySelectorAll('.carrinho-item');
+    const contador = document.querySelector('.nav-icon-container a');
+    const quantidadeItens = items.length;
+    
+    // Salva a quantidade no localStorage
+    localStorage.setItem('quantidadeCarrinho', quantidadeItens);
+    
+    if (quantidadeItens > 0) {
+      // Cria ou atualiza o contador
+      let badge = contador.querySelector('.carrinho-badge');
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'carrinho-badge';
+        contador.appendChild(badge);
+      }
+      badge.textContent = quantidadeItens;
+    } else {
+      // Remove o contador se não houver itens
+      const badge = contador.querySelector('.carrinho-badge');
+      if (badge) {
+        badge.remove();
+      }
+    }
+  }
+
   function adicionarAoCarrinho(button) {
     const produtoCard = button.closest('.produto-card');
     const nome = produtoCard.querySelector('h3').textContent;
@@ -657,8 +696,10 @@ function aumentarQuantidade(button) {
     const carrinhoItems = document.getElementById('carrinho-items');
     carrinhoItems.appendChild(novoItem);
 
-    // Atualiza o total
+    // Atualiza o total e o contador
     atualizarTotal();
+    atualizarContadorCarrinho();
+    salvarCarrinho();
 
     // Adiciona animação de sucesso
     button.innerHTML = '<i class="ri-check-line"></i> Adicionado!';
@@ -870,3 +911,61 @@ function aumentarQuantidade(button) {
         minute: '2-digit'
     });
   }
+
+  // Função para salvar os itens do carrinho no localStorage
+  function salvarCarrinho() {
+    const items = document.querySelectorAll('.carrinho-item');
+    const carrinhoItems = [];
+    
+    items.forEach(item => {
+        carrinhoItems.push({
+            nome: item.querySelector('h3').textContent,
+            preco: item.querySelector('.carrinho-item-preco').textContent,
+            imagem: item.querySelector('img').src,
+            quantidade: item.querySelector('.carrinho-item-quantidade span').textContent
+        });
+    });
+    
+    localStorage.setItem('carrinhoItems', JSON.stringify(carrinhoItems));
+  }
+
+  // Função para carregar os itens do carrinho do localStorage
+  function carregarCarrinho() {
+    const carrinhoItems = JSON.parse(localStorage.getItem('carrinhoItems')) || [];
+    const carrinhoContainer = document.getElementById('carrinho-items');
+    
+    carrinhoContainer.innerHTML = '';
+    
+    carrinhoItems.forEach(item => {
+        const novoItem = document.createElement('div');
+        novoItem.className = 'carrinho-item';
+        novoItem.innerHTML = `
+            <img src="${item.imagem}" alt="${item.nome}">
+            <div class="carrinho-item-info">
+                <h3>${item.nome}</h3>
+                <p class="carrinho-item-preco">${item.preco}</p>
+                <div class="carrinho-item-quantidade">
+                    <button onclick="diminuirQuantidade(this)">
+                        <i class="ri-subtract-line"></i>
+                    </button>
+                    <span>${item.quantidade}</span>
+                    <button onclick="aumentarQuantidade(this)">
+                        <i class="ri-add-line"></i>
+                    </button>
+                </div>
+            </div>
+            <button onclick="removerItem(this)" class="remover-item">
+                <i class="ri-delete-bin-line"></i>
+            </button>
+        `;
+        carrinhoContainer.appendChild(novoItem);
+    });
+    
+    atualizarTotal();
+    atualizarContadorCarrinho();
+  }
+
+  // Carrega o carrinho quando a página é carregada
+  document.addEventListener('DOMContentLoaded', function() {
+    carregarCarrinho();
+  });
