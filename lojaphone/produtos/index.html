@@ -37,6 +37,12 @@
                         <li class="nav__item">
                             <a href="#products" class="nav__link">Produtos</a>
                         </li>
+                        <li class="nav__item">
+                            <a href="/lojaphone/carrinho.html" class="nav__link carrinho-icon">
+                                <i class="ri-shopping-cart-line"></i>
+                                <span id="carrinho-contador" class="carrinho-contador">0</span>
+                            </a>
+                        </li>
                     </ul>
 
                     <div class="nav__close" id="nav-close">
@@ -68,12 +74,10 @@
                             <h3 class="home__title-description">Visão geral</h3>
                             <p class="home__description">iPhone 15 Pro Max. Forjado em titânio e com o incomparável chip A17 Pro, botão de Ação configurável e o sistema de câmera mais poderoso em um iPhone.
                             </p>
-                            <a href="https://w.app/iPhone15promax" target="_blank" class="button button--flex">
-                                <span class="button--flex">
-                                    <i class="ri-shopping-bag-line button__icon"></i></i> Comprar Agora
-                                </span>
+                            <button onclick="adicionarAoCarrinho('iPhone 15 Pro Max', 8600.00, 'ProMax')" class="button button--flex" style="margin-top: 1rem;">
+                                <i class="ri-shopping-cart-line button__icon"></i> Adicionar ao Carrinho
                                 <span class="home__price">R$8.600.00</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -177,6 +181,9 @@
                             <button class="button button--flex products__button">
                                 <a href="https://w.app/iPhone15promax" target="_blank"><i class="ri-shopping-bag-line button__icon"></i></a>
                             </button>
+                            <button onclick="adicionarAoCarrinho('iPhone 15 Pro Max', 8600.00, 'Black')" class="button button--flex products__button" style="margin-top: 0.5rem;">
+                                <i class="ri-shopping-cart-line button__icon"></i>
+                            </button>
                         </div>
                     </article>
                     <article class="products__card">
@@ -189,6 +196,9 @@
                             <button class="button button--flex products__button">
                                 <a href="https://w.app/iPhone15promax" target="_blank"><i class="ri-shopping-bag-line button__icon"></i></a>
                             </button>
+                            <button onclick="adicionarAoCarrinho('iPhone 15 Pro Max', 8600.00, 'Natural')" class="button button--flex products__button" style="margin-top: 0.5rem;">
+                                <i class="ri-shopping-cart-line button__icon"></i>
+                            </button>
                         </div>
                     </article>
                     <article class="products__card">
@@ -200,6 +210,9 @@
     
                             <button class="button button--flex products__button">
                                 <a href="https://w.app/iPhone15promax" target="_blank"><i class="ri-shopping-bag-line button__icon"></i></a>
+                            </button>
+                            <button onclick="adicionarAoCarrinho('iPhone 15 Pro Max', 8600.00, 'Blue')" class="button button--flex products__button" style="margin-top: 0.5rem;">
+                                <i class="ri-shopping-cart-line button__icon"></i>
                             </button>
                         </div>
                     </article>
@@ -286,5 +299,6 @@
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script>
         <script src="/lojaphone/produtos/assets/js/popupmais.js"></script>
+        <script src="/lojaphone/produtos/assets/js/carrinho.js"></script>
     </body>
 </html>
