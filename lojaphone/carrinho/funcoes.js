@@ -870,3 +870,49 @@ function aumentarQuantidade(button) {
         minute: '2-digit'
     });
   }
+
+  // Função para carregar os produtos do carrinho na página carrinho.html
+  function carregarCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const carrinhoItems = document.getElementById('carrinho-items');
+    if (!carrinhoItems) return;
+    carrinhoItems.innerHTML = '';
+
+    if (carrinho.length === 0) {
+        carrinhoItems.innerHTML = '<div class="carrinho-vazio">Seu carrinho está vazio.</div>';
+        atualizarTotal();
+        return;
+    }
+
+    carrinho.forEach(produto => {
+        const item = document.createElement('div');
+        item.className = 'carrinho-item';
+        item.innerHTML = `
+            <img src="${produto.imagem || ''}" alt="${produto.nome}">
+            <div class="carrinho-item-info">
+                <h3>${produto.nome} ${produto.cor ? '(' + produto.cor + ')' : ''}</h3>
+                <p class="carrinho-item-preco">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+                <div class="carrinho-item-quantidade">
+                    <button onclick="diminuirQuantidade(this)">
+                        <i class="ri-subtract-line"></i>
+                    </button>
+                    <span>${produto.quantidade}</span>
+                    <button onclick="aumentarQuantidade(this)">
+                        <i class="ri-add-line"></i>
+                    </button>
+                </div>
+            </div>
+            <button onclick="removerItem(this)" class="remover-item">
+                <i class="ri-delete-bin-line"></i>
+            </button>
+        `;
+        carrinhoItems.appendChild(item);
+    });
+
+    atualizarTotal();
+  }
+
+  // Chama a função ao carregar a página carrinho.html
+  if (document.getElementById('carrinho-items')) {
+    document.addEventListener('DOMContentLoaded', carregarCarrinho);
+  }

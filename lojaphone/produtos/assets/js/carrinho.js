@@ -12,7 +12,8 @@ function adicionarAoCarrinho(nome, preco, cor) {
         nome: nome,
         preco: preco,
         cor: cor,
-        quantidade: 1
+        quantidade: 1,
+        imagem: document.querySelector('.home__img').src // Pega a imagem do produto atual
     };
     
     carrinho.push(produto);
