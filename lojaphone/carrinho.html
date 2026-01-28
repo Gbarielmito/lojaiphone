@@ -1,353 +1,384 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrinho - UniMarket</title>
-    <link rel="stylesheet" href="./estilo/global.css" />
-    <link rel="stylesheet" href="./global/carrinho.css">
-    <link rel="stylesheet" href="./global/animacoes.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
-    <style>
-      @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
-    </style>
-  </head>
-  <body>
-    <div class="floating-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho - UniMarket</title>
+  <link rel="stylesheet" href="./estilo/global.css" />
+  <link rel="stylesheet" href="./global/carrinho.css">
+  <link rel="stylesheet" href="./global/animacoes.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+  </style>
+</head>
+
+<body>
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <section id="home">
+    <div class="navbar show-menu">
+      <div class="header-inner-content">
+        <h1 class="logo">Uni<span>Market</span></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../index.html#produtos">Produtos</a></li>
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li>Contato</li>
+          <li>Conta</li>
+        </ul>
+      </nav>
+      <div class="nav-icon-container">
+        <a href="#"><img src="./imagens/cart.png" /></a>
+        <img src="./imagens/menu.png" class="menu-button" />
+      </div>
     </div>
-    <section id="home">
-      <div class="navbar show-menu">
-        <div class="header-inner-content">
-          <h1 class="logo">Uni<span>Market</span></h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="../index.html#produtos">Produtos</a></li>
-            <li><a href="../index.html#sobre">Sobre</a></li>
-            <li>Contato</li>
-            <li>Conta</li>
-          </ul>
-        </nav>
-        <div class="nav-icon-container">
-          <a href="#"><img src="./imagens/cart.png" /></a>
-          <img src="./imagens/menu.png" class="menu-button" />
-        </div>
-      </div>
-    </section>
+  </section>
 
-    <div class="carrinho-container">
-      <h2 class="carrinho-titulo">
-        <i class="ri-shopping-cart-2-line"></i> Seu Carrinho
-      </h2>
-      
-      <div id="carrinho-items">
-        <!-- O carrinho começa vazio -->
-      </div>
+  <div class="carrinho-container">
+    <h2 class="carrinho-titulo">
+      <i class="ri-shopping-cart-2-line"></i> Seu Carrinho
+    </h2>
 
-      <div class="carrinho-total">
-        <div class="total-info">
-          <span>Subtotal:</span>
-          <span>R$ 0,00</span>
-        </div>
-        <div class="total-info">
-          <span>Frete:</span>
-          <span>Grátis</span>
-        </div>
-        <div class="total-info total-final">
-          <span>Total:</span>
-          <span>R$ <span id="total-carrinho">0,00</span></span>
-        </div>
-      </div>
+    <div id="carrinho-items">
+      <!-- O carrinho começa vazio -->
+    </div>
 
-      <div class="carrinho-botoes">
-        <button onclick="window.location.href='../index.html'" class="btn-continuar">
-          <i class="ri-arrow-left-line"></i> Continuar Comprando
-        </button>
-        <button class="btn-pendentes" onclick="verPedidosPendentes()">
-          <i class="ri-time-line"></i>
-          Pedidos Pendentes
-        </button>
-        <button class="btn-confirmados" onclick="verPedidosConfirmados()">
-          <i class="ri-check-double-line"></i>
-          Pedidos Confirmados
-        </button>
-        <button onclick="finalizarCompra()" class="btn-finalizar">
-          Finalizar Compra <i class="ri-arrow-right-line"></i>
-        </button>
+    <div class="carrinho-total">
+      <div class="total-info">
+        <span>Subtotal:</span>
+        <span>R$ 0,00</span>
       </div>
-
-      <!-- Popup de Pedidos Confirmados -->
-      <div class="popup-confirmados">
-        <div class="popup-content">
-          <div class="popup-header">
-            <h2>Pedidos Confirmados</h2>
-            <button class="fechar-popup" onclick="fecharPedidosConfirmados()">
-              <i class="ri-close-line"></i>
-            </button>
-          </div>
-          <div class="confirmados-lista">
-            <!-- Os pedidos confirmados serão inseridos aqui via JavaScript -->
-          </div>
-        </div>
+      <div class="total-info">
+        <span>Frete:</span>
+        <span style="color: #34c759; font-weight: 500;">Grátis</span>
       </div>
-
-      <!-- Popup de Pedidos Pendentes -->
-      <div id="popup-pedidos" class="popup-pedidos">
-        <div class="popup-content">
-          <div class="popup-header">
-            <h2><i class="ri-time-line"></i> Pedidos Pendentes</h2>
-            <button class="close-popup" onclick="fecharPopupPedidos()">
-              <i class="ri-close-line"></i>
-            </button>
-          </div>
-          
-          <div class="pedidos-lista">
-            <!-- Lista de pedidos pendentes começa vazia -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Produtos Recomendados -->
-      <div class="produtos-recomendados">
-        <div class="titulo-recomendados">
-          <i class="ri-heart-line"></i>
-          <h2>Produtos Recomendados</h2>
-        </div>
-        <div class="carrossel-container">
-          <button class="carrossel-btn prev-btn">
-            <i class="ri-arrow-left-s-line"></i>
-          </button>
-          <div class="carrossel-wrapper">
-            <div class="carrossel-slide">
-              <div class="produto-card">
-                <a href="./produtos/index.html"><img src="./produtos/assets/img/iphone-15-plus-black.png" alt="iPhone 15"></a>
-                <h3>iPhone 15</h3>
-                <p class="preco">R$ 7.999,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/iphone14/index.html"><img src="./produtos/assets/img/iphone14promaxroxo.png" alt="iPhone 14" class="quartorze"></a>
-                <h3>iPhone 14 Pro Max</h3>
-                <p class="preco">R$ 4.900,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/iphone13/index.html"><img src="./produtos/assets/img/iphone13promaxrep.png" alt="iPhone 13"></a>
-                <h3>iPhone 13 Pro Max</h3>
-                <p class="preco">R$ 3.800,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/iphone12/index.html"><img src="./produtos/iphone12/img/iphone12promaxgold.png" alt="iPhone 12"></a>
-                <h3>iPhone 12 Pro Max</h3>
-                <p class="preco">R$ 2.300,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/Svintequatro/index.html"><img src="./produtos/Svintequatro/img/repss.png" alt="galaxy 24"></a>
-                <h3>Samsung Galaxy S24</h3>
-                <p class="preco">R$ 3.000,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/Svintetres/index.html"><img src="./produtos/Svintetres/img/repgalaxy.png" alt="galaxy 23"></a>
-                <h3>Samsung Galaxy S23</h3>
-                <p class="preco">R$ 2.400,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/Svintetresultra/index.html"><img src="./produtos/Svintetresultra/img/repultra.png" alt="ultra 23"></a>
-                <h3>Galaxy S23 Ultra</h3>
-                <p class="preco">R$ 2.900,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-              <div class="produto-card">
-                <a href="./produtos/xiaominote13/index.html"><img src="./produtos/xiaominote13/img/note13blue.png" alt="note 13"></a>
-                <h3>Xiaomi Note 13</h3>
-                <p class="preco">R$ 1.200,00</p>
-                <button class="btn-adicionar">Adicionar ao Carrinho</button>
-              </div>
-            </div>
-          </div>
-          <button class="carrossel-btn next-btn">
-            <i class="ri-arrow-right-s-line"></i>
-          </button>
-        </div>
-        <div class="carrossel-dots"></div>
+      <div class="total-info total-final">
+        <span>Total:</span>
+        <span>R$ <span id="total-carrinho">0,00</span></span>
       </div>
     </div>
 
-    <!-- Popup de Pagamento -->
-    <div id="popup-pagamento" class="popup-pagamento">
+    <!-- Badges de Segurança -->
+    <div class="security-badges">
+      <div class="security-badge">
+        <i class="ri-shield-check-line"></i>
+        <span>Compra Segura</span>
+      </div>
+      <div class="security-badge">
+        <i class="ri-lock-line"></i>
+        <span>Dados Protegidos</span>
+      </div>
+      <div class="security-badge">
+        <i class="ri-truck-line"></i>
+        <span>Entrega Garantida</span>
+      </div>
+      <div class="security-badge">
+        <i class="ri-customer-service-2-line"></i>
+        <span>Suporte 24h</span>
+      </div>
+    </div>
+
+    <div class="carrinho-botoes">
+      <button onclick="window.location.href='../index.html'" class="btn-continuar">
+        <i class="ri-arrow-left-line"></i> Continuar Comprando
+      </button>
+      <button class="btn-pendentes" onclick="verPedidosPendentes()">
+        <i class="ri-time-line"></i>
+        Pedidos Pendentes
+      </button>
+      <button class="btn-confirmados" onclick="verPedidosConfirmados()">
+        <i class="ri-check-double-line"></i>
+        Pedidos Confirmados
+      </button>
+      <button onclick="finalizarCompra()" class="btn-finalizar">
+        Finalizar Compra <i class="ri-arrow-right-line"></i>
+      </button>
+    </div>
+
+    <!-- Popup de Pedidos Confirmados -->
+    <div class="popup-confirmados">
       <div class="popup-content">
         <div class="popup-header">
-          <h2>Finalizar Compra</h2>
-          <button class="close-popup" onclick="fecharPopup()">
+          <h2>Pedidos Confirmados</h2>
+          <button class="fechar-popup" onclick="fecharPedidosConfirmados()">
             <i class="ri-close-line"></i>
           </button>
         </div>
-        
-        <form class="form-pagamento" id="form-pagamento">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nome">Nome Completo</label>
-              <input type="text" id="nome" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cpf">CPF</label>
-              <input type="text" id="cpf" required>
-            </div>
-
-            <div class="form-group">
-              <label for="cep">CEP</label>
-              <input type="text" id="cep" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cidade">Cidade</label>
-              <input type="text" id="cidade" required>
-            </div>
-
-            <div class="form-group">
-              <label for="rua">Rua</label>
-              <input type="text" id="rua" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="complemento">Complemento</label>
-              <input type="text" id="complemento" required>
-            </div>
-
-            <div class="form-group">
-              <label for="numero">Número</label>
-              <input type="text" id="numero" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="cupom">Cupom de desconto (opcional)</label>
-            <input type="text" id="cupom">
-          </div>
-          
-          <div class="form-group">
-            <label>Método de Pagamento</label>
-            <div class="metodos-pagamento">
-              <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
-                <img src="./carrinho/imagens/cardilus.png" alt="Cartão de Crédito">
-                <p>Cartão de Crédito</p>
-              </div>
-              <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
-                <img src="./carrinho/imagens/pixilus.png" alt="PIX">
-                <p>PIX</p>
-              </div>
-              <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
-                <img src="./carrinho/imagens/boletoilus.png" alt="Boleto">
-                <p>Boleto</p>
-              </div>
-            </div>
-          </div>
-          
-          <div id="dados-cartao" style="display: none;">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nome-titular">Nome do titular</label>
-                <input type="text" id="nome-titular">
-              </div>
-
-              <div class="form-group">
-                <label for="numero-cartao">Número do Cartão</label>
-                <input type="text" id="numero-cartao">
-              </div>
-              
-              <div class="form-group">
-                <label for="validade">Validade</label>
-                <input type="text" id="validade" placeholder="MM/AA">
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv">
-            </div>
-          </div>
-
-          <div id="dados-pix" style="display: none;">
-            <div class="pix-container">
-              <div class="pix-info">
-                <h3>Pagamento via PIX</h3>
-                <p>Escaneie o QR Code abaixo com seu aplicativo de pagamento</p>
-                <div class="pix-qrcode">
-                  <img src="./carrinho/imagens/qrcodeilus.png" alt="QR Code PIX">
-                </div>
-                <div class="pix-copy">
-                  <p>Ou copie o código PIX abaixo:</p>
-                  <div class="pix-code">
-                    <span id="pix-code">00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000</span>
-                    <button onclick="copiarPixCode()" class="btn-copiar">
-                      <i class="ri-file-copy-line"></i> Copiar
-                    </button>
-                  </div>
-                </div>
-                <div class="pix-timer">
-                  <p>Este QR Code expira em: <span id="pix-timer">14:59</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <button type="submit" class="btn-confirmar">
-            Confirmar Pagamento
-          </button>
-        </form>
-
-        <!-- Animação de Sucesso -->
-        <div id="animacao-sucesso" class="animacao-sucesso" style="display: none;">
-          <div class="checkmark-circle">
-            <div class="checkmark"></div>
-          </div>
-          <h3>Pagamento Realizado com Sucesso!</h3>
-          <p>Obrigado por comprar conosco</p>
-          <div class="detalhes-compra">
-            <div class="detalhe-item">
-              <i class="ri-mail-line"></i>
-              <span>Um e-mail de confirmação foi enviado</span>
-            </div>
-            <div class="detalhe-item">
-              <i class="ri-truck-line"></i>
-              <span>Seu pedido será enviado em breve</span>
-            </div>
-          </div>
-          <button onclick="window.location.href='../index.html'" class="btn-voltar">
-            Voltar para a Loja
-          </button>
+        <div class="confirmados-lista">
+          <!-- Os pedidos confirmados serão inseridos aqui via JavaScript -->
         </div>
       </div>
     </div>
 
-    <script src="./carrinho/funcoes.js"></script>
-    <script src="./script/script.js"></script>
-  </body>
+    <!-- Popup de Pedidos Pendentes -->
+    <div id="popup-pedidos" class="popup-pedidos">
+      <div class="popup-content">
+        <div class="popup-header">
+          <h2><i class="ri-time-line"></i> Pedidos Pendentes</h2>
+          <button class="close-popup" onclick="fecharPopupPedidos()">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+
+        <div class="pedidos-lista">
+          <!-- Lista de pedidos pendentes começa vazia -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Produtos Recomendados -->
+    <div class="produtos-recomendados">
+      <div class="titulo-recomendados">
+        <i class="ri-heart-line"></i>
+        <h2>Produtos Recomendados</h2>
+      </div>
+      <div class="carrossel-container">
+        <button class="carrossel-btn prev-btn">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <div class="carrossel-wrapper">
+          <div class="carrossel-slide">
+            <div class="produto-card">
+              <a href="./produtos/index.html"><img src="./produtos/assets/img/iphone-15-plus-black.png"
+                  alt="iPhone 15"></a>
+              <h3>iPhone 15</h3>
+              <p class="preco">R$ 7.999,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/iphone14/index.html"><img src="./produtos/assets/img/iphone14promaxroxo.png"
+                  alt="iPhone 14" class="quartorze"></a>
+              <h3>iPhone 14 Pro Max</h3>
+              <p class="preco">R$ 4.900,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/iphone13/index.html"><img src="./produtos/assets/img/iphone13promaxrep.png"
+                  alt="iPhone 13"></a>
+              <h3>iPhone 13 Pro Max</h3>
+              <p class="preco">R$ 3.800,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/iphone12/index.html"><img src="./produtos/iphone12/img/iphone12promaxgold.png"
+                  alt="iPhone 12"></a>
+              <h3>iPhone 12 Pro Max</h3>
+              <p class="preco">R$ 2.300,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/Svintequatro/index.html"><img src="./produtos/Svintequatro/img/repss.png"
+                  alt="galaxy 24"></a>
+              <h3>Samsung Galaxy S24</h3>
+              <p class="preco">R$ 3.000,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/Svintetres/index.html"><img src="./produtos/Svintetres/img/repgalaxy.png"
+                  alt="galaxy 23"></a>
+              <h3>Samsung Galaxy S23</h3>
+              <p class="preco">R$ 2.400,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/Svintetresultra/index.html"><img src="./produtos/Svintetresultra/img/repultra.png"
+                  alt="ultra 23"></a>
+              <h3>Galaxy S23 Ultra</h3>
+              <p class="preco">R$ 2.900,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto-card">
+              <a href="./produtos/xiaominote13/index.html"><img src="./produtos/xiaominote13/img/note13blue.png"
+                  alt="note 13"></a>
+              <h3>Xiaomi Note 13</h3>
+              <p class="preco">R$ 1.200,00</p>
+              <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+        </div>
+        <button class="carrossel-btn next-btn">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+      </div>
+      <div class="carrossel-dots"></div>
+    </div>
+  </div>
+
+  <!-- Popup de Pagamento -->
+  <div id="popup-pagamento" class="popup-pagamento">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>Finalizar Compra</h2>
+        <button class="close-popup" onclick="fecharPopup()">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <form class="form-pagamento" id="form-pagamento">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" required>
+          </div>
+
+          <div class="form-group">
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" required>
+          </div>
+
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cupom">Cupom de desconto (opcional)</label>
+          <input type="text" id="cupom">
+        </div>
+
+        <div class="form-group">
+          <label>Método de Pagamento</label>
+          <div class="metodos-pagamento">
+            <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
+              <img src="./carrinho/imagens/cardilus.png" alt="Cartão de Crédito">
+              <p>Cartão de Crédito</p>
+            </div>
+            <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
+              <img src="./carrinho/imagens/pixilus.png" alt="PIX">
+              <p>PIX</p>
+            </div>
+            <div class="metodo-pagamento" onclick="selecionarMetodo(this)">
+              <img src="./carrinho/imagens/boletoilus.png" alt="Boleto">
+              <p>Boleto</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="dados-cartao" style="display: none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome-titular">Nome do titular</label>
+              <input type="text" id="nome-titular">
+            </div>
+
+            <div class="form-group">
+              <label for="numero-cartao">Número do Cartão</label>
+              <input type="text" id="numero-cartao">
+            </div>
+
+            <div class="form-group">
+              <label for="validade">Validade</label>
+              <input type="text" id="validade" placeholder="MM/AA">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv">
+          </div>
+        </div>
+
+        <div id="dados-pix" style="display: none;">
+          <div class="pix-container">
+            <div class="pix-info">
+              <h3>Pagamento via PIX</h3>
+              <p>Escaneie o QR Code abaixo com seu aplicativo de pagamento</p>
+              <div class="pix-qrcode">
+                <img src="./carrinho/imagens/qrcodeilus.png" alt="QR Code PIX">
+              </div>
+              <div class="pix-copy">
+                <p>Ou copie o código PIX abaixo:</p>
+                <div class="pix-code">
+                  <span id="pix-code">00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000</span>
+                  <button onclick="copiarPixCode()" class="btn-copiar">
+                    <i class="ri-file-copy-line"></i> Copiar
+                  </button>
+                </div>
+              </div>
+              <div class="pix-timer">
+                <p>Este QR Code expira em: <span id="pix-timer">14:59</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-confirmar">
+          Confirmar Pagamento
+        </button>
+      </form>
+
+      <!-- Animação de Sucesso -->
+      <div id="animacao-sucesso" class="animacao-sucesso" style="display: none;">
+        <div class="checkmark-circle">
+          <div class="checkmark"></div>
+        </div>
+        <h3>Pagamento Realizado com Sucesso!</h3>
+        <p>Obrigado por comprar conosco</p>
+        <div class="detalhes-compra">
+          <div class="detalhe-item">
+            <i class="ri-mail-line"></i>
+            <span>Um e-mail de confirmação foi enviado</span>
+          </div>
+          <div class="detalhe-item">
+            <i class="ri-truck-line"></i>
+            <span>Seu pedido será enviado em breve</span>
+          </div>
+        </div>
+        <button onclick="window.location.href='../index.html'" class="btn-voltar">
+          Voltar para a Loja
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./carrinho/funcoes.js"></script>
+  <script src="./script/script.js"></script>
+</body>
+
 </html>
